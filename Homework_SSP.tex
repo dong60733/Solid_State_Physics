@@ -1,0 +1,144 @@
+\documentclass[11pt]{ctexart}
+
+% 插入宏包
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry} % 设置页边距
+\usepackage{lipsum} % 生成虚拟文本
+\usepackage{fancyhdr} 
+\setlength{\headheight}{14pt}% 自定义页眉和页脚
+\usepackage{booktabs} % 插入三线表
+\usepackage{lastpage} % 解决总页数显示问题
+\usepackage{amsmath,amsfonts,amsthm} % 常用数学公式指令、数学公式、提供证明环境
+\usepackage{bm} % 数学字体加粗
+\usepackage{mathrsfs} % 提供特殊的数学花体
+\usepackage{amssymb, ,hyperref, framed, color, enumerate}
+\usepackage{bbding} % 打叉、打勾
+
+% Custom counter for problems
+\newcounter{problemname}
+
+% Environment for problems
+\definecolor{shadecolor}{RGB}{241, 241, 255}
+
+\newenvironment{problem}{\begin{shaded}\stepcounter{problemname}\par\noindent\textbf{习题}\arabic{problemname}.}{\end{shaded}\par}
+
+
+% Environment for solutions
+\newenvironment{solution}{\par\noindent\textbf{解答. }}{\par}
+
+% Environment for notes
+\newenvironment{note}{\par\noindent\textbf{习题\arabic{problemname}的注记. }}{\par}
+
+% Reset problem counter at each subsection
+\usepackage{titlesec}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{\setcounter{problemname}{0}}
+
+% 设置文章格式
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}
+\pagestyle{fancy} % 使用fancyhdr宏包定义页眉页脚
+\fancyhf{} % 清空默认的页眉和页脚设置
+\linespread{1.5}
+\chead{《固体物理学（胡安版）》作业}
+\cfoot{第 \thepage 页（共 \pageref{LastPage}页）}
+
+% 信息栏
+\title{\Huge\textbf{固体物理学作业}}
+\author{Charles Luo}
+\date{\today}
+
+% 正文区
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{第一章习题}
+
+\begin{problem}
+    在正交直角坐标系中，若矢量 $\mathbf{R}_n = n_1\,\mathbf{i} + n_2\,\mathbf{j} + n_3\,\mathbf{k}$， 其中 $\mathbf{i},\,\mathbf{j},\,\mathbf{k}$
+    为单位矢量，$n_i\ (i = 1,2,3)$ 为整数。问下列情况属于什么点阵?
+    \begin{enumerate}[(a)]
+        \item 当 $n_i$ 为全奇加全偶时；
+        \item 当 $n_i$ 之和为偶数时。
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+    分别证明：
+    \begin{enumerate}[(a)]
+        \item 面心立方（fcc）和体心立方（bcc）点阵的惯用初基元胞三基矢间夹角 $\theta$ 相等，
+              对fcc为 $60^\circ$ ，对bcc为 $109^\circ27^\prime$;
+        \item 在金刚石结构中，作任一原子与其四个最近邻原子的连线。证明任意两条线之间夹角 $\theta$ 均为 \\[12pt]
+              $\arccos\left(-\dfrac{1}{3}\right) = 109^\circ27^\prime$。
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    证明在六角晶系中米勒指数为 $(hkl)$ 的晶面族间距为
+    $$d = \left[\frac{4}{3}\left(\frac{h^2 + hk + k^2}{a^2} + \frac{l^2}{c^2}\right)\right]^{-\frac{1}{2}}.$$
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    证明底心正交点阵的倒点阵仍为底心正交点阵。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    试证明具有四面体对称性的晶体，其介电常量为一标量介电常量：
+    $$\varepsilon_{\alpha\beta} = \varepsilon_0\delta_{\alpha\beta}.$$
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    若 $AB_3$ 的立方结构如图所示，设 $A$ 原子的散射因子为 $f_A(\mathbf{K}_{hkl})$，
+    $B$ 原子的散射因子 $f_B(\mathbf{K}_{hkl})$.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    在某立方晶系的铜 $\mathbf{K}_\alpha X$ 射线粉末相中，观察到的衍射角 $\theta_i$ 有下列关系：
+    $$\sin{\theta_1} : \sin{\theta_2} : \sin{\theta_3} : \sin{\theta_4} 
+    : \sin{\theta_5}: \sin{\theta_6}: \sin{\theta_7}: \sin{\theta_8}$$
+    $$= \sqrt{3} : \sqrt{4} : \sqrt{8} : \sqrt{11} : \sqrt{12} : \sqrt{16} : \sqrt{19} : \sqrt{20}.$$
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    X 射线衍射的线宽。 \\
+    假定一个有限大小的晶体，点阵节点由 $\displaystyle R_l = \sum_{i = 1}^{3}l_i\mathbf{a}_i$ 确定，
+    其中 $l_i$ 取整数 $0,1,2,\cdots,N_i - 1$，每个结点处有全同的点散射中心。散射振幅可写为
+    $$u_{k\to k^\prime} = c\sum_{l_i = 0}^{N_i - 1}\text{e}^{-i\left(k^\prime - k\right)\cdot\sum\limits_{i = 1}^{3}l_i\mathbf{a}_i}.$$
+    \begin{enumerate}[(a)]
+        \item 证明散射强度 $\displaystyle I = \left|u\right|^2 = u^*u = c^2\prod_{i = 1}^{3}
+              \dfrac{\sin^2{\dfrac{1}{2}N_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}}{\sin^2{\dfrac{1}{2}\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}},\ \Delta k = k^\prime - k$;
+        \item 当 $\Delta\mathbf{k}\cdot\mathbf{a}_i = 2\pi h_i$（$h_i$ 为整数）时，出现衍射极大值，函数 $\sin^2{\dfrac{1}{2}N_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}$ 的第一个零点定义了 X 射线衍射的线宽
+              $\Delta_i$，证明 $\Delta_i = \dfrac{2\pi}{N_i}$;
+        \item 对于一个无限大的晶体，$\displaystyle N_i\to\infty$，证明 $\displaystyle I = c^2N^2\delta_{\mathbf{k}^\prime - \mathbf{k},\mathbf{K}_h}$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\newpage
+\section{第二章习题}
+
+\end{document}
