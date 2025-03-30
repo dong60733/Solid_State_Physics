@@ -64,8 +64,23 @@
     \end{enumerate}
 \end{problem}
 \begin{solution}
-
+    \begin{enumerate}[(a)]
+        \item 据题意，全奇加全偶应是两个布拉维格子的叠加。 \\
+              若 $n_i\ (i = 1,2,3)$ 全为偶数，可以提取公因子 $2$ 得到 $\mathbf{R}_n = n_1^\prime\left(2\mathbf{i}\right) + n_2^\prime\left(2\mathbf{j}\right) + n_3^\prime\left(2\mathbf{k}\right)$,
+              此时 $n_i^\prime\ (i = 1,2,3)$ 为整数，对应简单立方点阵，格矢长度为 $2$ 个单位长度。 \\
+              同理可得 $n_i\ (i = 1,2,3)$ 全为奇数时也为简单立方点阵，可由全为偶数时点阵沿 $\left(1,1,1\right)$ 方向平移移一个单位长度得到。 \\
+              二者的嵌套为体心立方点阵。
+        \item 据题意，$n_1 + n_2 + n_3 = 2k,\ k\in\mathbb{N}$。 \\
+              不妨取 $k = 1$ 和 $k = 2$ 来猜测，可以得到格点坐标为 $\left(1,1,0\right),\cdots,\left(0,1,1\right),\left(2,0,0\right),\cdots,\left(0,0,2\right)$.
+              为面心立方点阵。
+    \end{enumerate}
 \end{solution}
+\begin{note}
+    \begin{itemize}
+        \item (b)可取 $k_1 = k - n_1, k_2 = k - n_2, k_3 = k - n_1 - n_2$, 
+                 得到 $\mathbf{R}_n = \left(k_2 + k_3\right)\mathbf{i} + \left(k_3 + k_1\right)\mathbf{j} + \left(k_1 + k_2\right)\mathbf{k}$.
+    \end{itemize}
+\end{note}
 
 \begin{problem}
     分别证明：
@@ -73,11 +88,19 @@
         \item 面心立方（fcc）和体心立方（bcc）点阵的惯用初基元胞三基矢间夹角 $\theta$ 相等，
               对fcc为 $60^\circ$ ，对bcc为 $109^\circ27^\prime$;
         \item 在金刚石结构中，作任一原子与其四个最近邻原子的连线。证明任意两条线之间夹角 $\theta$ 均为 \\[12pt]
-              $\arccos\left(-\dfrac{1}{3}\right) = 109^\circ27^\prime$。
+              $\arccos{\left(-\dfrac{1}{3}\right)} = 109^\circ27^\prime$。
     \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item fcc 三个基矢为 $\mathbf{a_1} = \left(0,\dfrac{1}{2},\dfrac{1}{2}\right),\mathbf{a_2} = \left(\dfrac{1}{2},0,\dfrac{1}{2}\right),\mathbf{a_3} = \left(\dfrac{1}{2},\dfrac{1}{2},0\right)$. \\[12pt]
+              故 $\cos{\theta} = \dfrac{\mathbf{a_1}\cdot\mathbf{a_2}}{\left|\mathbf{a_1}\right|\left|\mathbf{a_2}\right|} = \dfrac{\mathbf{a_2}\cdot\mathbf{a_3}}{\left|\mathbf{a_2}\right|\left|\mathbf{a_3}\right|} = \dfrac{\mathbf{a_3}\cdot\mathbf{a_1}}{\left|\mathbf{a_3}\right|\left|\mathbf{a_1}\right|} = \dfrac{1}{2}$，即 $\theta = 60^\circ$. \\[12pt]
+              bcc 三个基矢为 $\mathbf{a_1} = \left(-\dfrac{1}{2},\dfrac{1}{2},\dfrac{1}{2}\right),\mathbf{a_2} = \left(\dfrac{1}{2},-\dfrac{1}{2},\dfrac{1}{2}\right),\mathbf{a_3} = \left(\dfrac{1}{2},\dfrac{1}{2},-\dfrac{1}{2}\right)$. \\[12pt]
+              故 $\cos{\theta} = \dfrac{\mathbf{a_1}\cdot\mathbf{a_2}}{\left|\mathbf{a_1}\right|\left|\mathbf{a_2}\right|} = \dfrac{\mathbf{a_2}\cdot\mathbf{a_3}}{\left|\mathbf{a_2}\right|\left|\mathbf{a_3}\right|} = \dfrac{\mathbf{a_3}\cdot\mathbf{a_1}}{\left|\mathbf{a_3}\right|\left|\mathbf{a_1}\right|} = -\dfrac{1}{3}$，即 $\theta = \arccos{\left(-\dfrac{1}{3}\right)} = 109^\circ27^\prime$.
+        \item 金刚石结构中坐标为 $\left(\dfrac{1}{4},\dfrac{1}{4},\dfrac{1}{4}\right)$ 的原子相邻的4个原子坐标分别为 $\left(0,0,0\right),\left(0,\dfrac{1}{2},\dfrac{1}{2}\right),\left(\dfrac{1}{2},0,\dfrac{1}{2}\right),$ \\[12pt] 
+              $\left(\dfrac{1}{2},\dfrac{1}{2},0\right)$. 邻边 $\mathbf{l_1} = \left(-\dfrac{1}{4},-\dfrac{1}{4},-\dfrac{1}{4}\right),\mathbf{l_2} = \left(-\dfrac{1}{4},\dfrac{1}{4},\dfrac{1}{4}\right),\mathbf{l_3} = \left(\dfrac{1}{4},-\dfrac{1}{4},\dfrac{1}{4}\right),\mathbf{l_4} = \left(\dfrac{1}{4},\dfrac{1}{4},-\dfrac{1}{4}\right)$. \\[12pt]
+              故 $\cos{\theta} = \dfrac{\mathbf{l_1}\cdot\mathbf{l_2}}{\left|\mathbf{l_1}\right|\left|\mathbf{l_2}\right|} = \dfrac{\mathbf{l_2}\cdot\mathbf{l_3}}{\left|\mathbf{l_2}\right|\left|\mathbf{l_3}\right|} = \dfrac{\mathbf{l_3}\cdot\mathbf{l_4}}{\left|\mathbf{l_3}\right|\left|\mathbf{l_4}\right|} = \dfrac{\mathbf{l_4}\cdot\mathbf{l_1}}{\left|\mathbf{l_4}\right|\left|\mathbf{l_1}\right|} = -\dfrac{1}{3}$，即 $\theta = \arccos{\left(-\dfrac{1}{3}\right)} = 109^\circ27^\prime$.
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -85,30 +108,120 @@
     $$d = \left[\frac{4}{3}\left(\frac{h^2 + hk + k^2}{a^2} + \frac{l^2}{c^2}\right)\right]^{-\frac{1}{2}}.$$
 \end{problem}
 \begin{solution}
-    
+    米勒指数以单胞的三条棱为坐标系. \\[12pt]
+    正点阵的一族晶面 $\left(hkl\right)$ 垂直于倒格矢 $\mathbf{K_h} = h\mathbf{b_1} + k\mathbf{b_2} + l\mathbf{b_3}$，晶面间距 $\dfrac{2\pi}{\left|\mathbf{K_h}\right|}$. \\[12pt]
+    在六角晶系中 $\mathbf{a} = \left(a,0,0\right),\mathbf{b} = \left(-\dfrac{1}{2}a,\dfrac{\sqrt{3}}{2}a,0\right),\mathbf{c} = \left(0,0,c\right)$. \\[12pt]
+    求倒点阵基矢：\\[12pt]
+    $\mathbf{b_1} = 2\pi\dfrac{\mathbf{a_2}\times\mathbf{a_3}}{\mathbf{a_1}\cdot\left(\mathbf{a_2}\times\mathbf{a_3}\right)} = \dfrac{2\pi}{a}\left(1,\dfrac{\sqrt{3}}{3},0\right)$. \\[12pt]
+    $\mathbf{b_2} = 2\pi\dfrac{\mathbf{a_3}\times\mathbf{a_1}}{\mathbf{a_1}\cdot\left(\mathbf{a_2}\times\mathbf{a_3}\right)} = \dfrac{2\pi}{a}\left(0,\dfrac{2\sqrt{3}}{3},0\right)$. \\[12pt]
+    $\mathbf{b_3} = 2\pi\dfrac{\mathbf{a_1}\times\mathbf{a_2}}{\mathbf{a_1}\cdot\left(\mathbf{a_2}\times\mathbf{a_3}\right)} = \dfrac{2\pi}{c}\left(0,0,1\right)$. \\[12pt]
+    倒格矢 $\mathbf{K_h} = \left(\dfrac{2\pi}{a}h,\dfrac{2\sqrt{3}\pi}{3a}h+\dfrac{4\sqrt{3}\pi}{3a}k,\dfrac{2\pi}{c}l\right)$, 故 $\displaystyle d = \dfrac{2\pi}{\left|\mathbf{K_h}\right|} = \left[\frac{4}{3}\left(\frac{h^2 + hk + k^2}{a^2} + \frac{l^2}{c^2}\right)\right]^{-\frac{1}{2}}.$
 \end{solution}
 
 \begin{problem}
     证明底心正交点阵的倒点阵仍为底心正交点阵。
 \end{problem}
 \begin{solution}
-    
+    底心正交阵基矢 $\mathbf{a_1} = \left(a,0,0\right),\mathbf{a_2} = \left(\dfrac{a}{2},\dfrac{b}{2},0\right),\mathbf{a_3} = \left(0,0,c\right)$. \\[12pt]
+    倒点阵基矢： \\[12pt]
+    $\mathbf{b_1} = 2\pi\dfrac{\mathbf{a_2}\times\mathbf{a_3}}{\mathbf{a_1}\cdot\left(\mathbf{a_2}\times\mathbf{a_3}\right)} = 2\pi\left(\dfrac{1}{a},-\dfrac{1}{b},0\right)$. \\[12pt]
+    $\mathbf{b_2} = 2\pi\dfrac{\mathbf{a_3}\times\mathbf{a_1}}{\mathbf{a_1}\cdot\left(\mathbf{a_2}\times\mathbf{a_3}\right)} = 2\pi\left(0,\dfrac{2\pi}{b},0\right)$. \\[12pt]
+    $\mathbf{b_3} = 2\pi\dfrac{\mathbf{a_1}\times\mathbf{a_2}}{\mathbf{a_1}\cdot\left(\mathbf{a_2}\times\mathbf{a_3}\right)} = 2\pi\left(0,0,\dfrac{1}{c}\right)$. \\[12pt]
+    倒点阵仍为底心正交阵，底面边长为 $\dfrac{4\pi}{a}$ 和 $\dfrac{4\pi}{b}$，高为 $\dfrac{2\pi}{c}$.
 \end{solution}
 
 \begin{problem}
     试证明具有四面体对称性的晶体，其介电常量为一标量介电常量：
-    $$\varepsilon_{\alpha\beta} = \varepsilon_0\delta_{\alpha\beta}.$$
+    $$\bm{\varepsilon}_{\alpha\beta} = \varepsilon_0\delta_{\alpha\beta}.$$
 \end{problem}
 \begin{solution}
-    
+    根据电动力学有
+    $$
+    \mathbf{D} = \bm{\varepsilon}\mathbf{E},\ \bm{\varepsilon} = 
+    \begin{pmatrix}
+        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+        \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+    \end{pmatrix}.
+    $$
+    四面体对称性包括三个四重反演轴，绕 x,y,z 轴旋转的操作分别记为 $\mathbf{A}_x,\mathbf{A}_y,\mathbf{A}_z$，反演操作记为 $\mathbf{I}$.
+    $$
+    \mathbf{A}_x = 
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & -1 & 0 \\
+    \end{pmatrix},
+    \mathbf{A}_y = 
+    \begin{pmatrix}
+        0 & 0 & -1 \\
+        0 & 1 & 1 \\
+        1 & 0 & 0 \\
+    \end{pmatrix},
+    \mathbf{A}_z = 
+    \begin{pmatrix}
+        0 & -1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1 \\
+    \end{pmatrix},
+    \mathbf{I} = 
+    \begin{pmatrix}
+        -1 & 0 & 0 \\
+        0 & -1 & 0 \\
+        0 & 0 & -1 \\
+    \end{pmatrix}.
+    $$
+    由题意，应有 $\left(\mathbf{I}\mathbf{A}_x\right)\bm{\varepsilon}\left(\mathbf{I}\mathbf{A}_x\right)^T = \bm{\varepsilon}$.即
+    $$
+    \begin{pmatrix}
+        -1 & 0 & 0 \\
+        0 & 0 & -1 \\
+        0 & 1 & 0 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+        \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+    \end{pmatrix}
+    \begin{pmatrix}
+        -1 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & -1 & 0 \\
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+        \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+    \end{pmatrix}
+    $$
+    可得 $\varepsilon_{13} = \varepsilon_{12} = 0,\varepsilon_{21} = -\varepsilon_{31},\varepsilon_{32} = -\varepsilon_{23},\varepsilon_{22} = \varepsilon_{33}$. \\
+    利用 $\left(\mathbf{I}\mathbf{A}_y\right)\bm{\varepsilon}\left(\mathbf{I}\mathbf{A}_y\right)^T = \bm{\varepsilon}$ 及  $\left(\mathbf{I}\mathbf{A}_z\right)\bm{\varepsilon}\left(\mathbf{I}\mathbf{A}_z\right)^T = \bm{\varepsilon}$ 可知 
+    $\bm{\varepsilon}_{\alpha\beta} = \varepsilon_0\delta_{\alpha\beta}$.
 \end{solution}
 
 \begin{problem}
     若 $AB_3$ 的立方结构如图所示，设 $A$ 原子的散射因子为 $f_A(\mathbf{K}_{hkl})$，
     $B$ 原子的散射因子 $f_B(\mathbf{K}_{hkl})$.
+    \begin{enumerate}[(a)]
+        \item 求其几何结构因子 $F(\mathbf{K}_{hkl}) = ?$
+        \item 找出 $\left(hkl\right)$ 衍射面的 X射线衍射强度分别在什么情况下有
+              $$ 
+              I\left(\mathbf{K}_{hkl}\right)\propto\begin{cases}
+              \left|f_A(\mathbf{K}_{hkl}) + 3f_B(\mathbf{K}_{hkl})\right|^2 \\
+              \left|f_A(\mathbf{K}_{hkl}) - f_B(\mathbf{K}_{hkl})\right|^2
+              \end{cases}
+              $$
+        \item 设 $f_A(\mathbf{K}_{hkl}) = f_B(\mathbf{K}_{hkl})$，问衍射面指数中哪些反射消失？试举出五种最简单的。
+    \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item 取原子坐标 A $\left(0,0,0\right)$ , B $\left(\dfrac{1}{2},\dfrac{1}{2},0\right),\left(\dfrac{1}{2},0,\dfrac{1}{2}\right),\left(0,\dfrac{1}{2},\dfrac{1}{2}\right)$. \\[12pt]
+              $\displaystyle F(hkl) = \sum_{j}f_j\text{e}^{-2\pi i\left(hr_{j1} + kr_{j2} + lr_{j3}\right)} = f_A + f_B\left(\text{e}^{-\pi i\left(h+k\right)} + \text{e}^{-\pi i\left(k+l\right)} + \text{e}^{-\pi i\left(h+l\right)}\right)$.
+        \item 当 $\left(h+k\right),\left(h+l\right),\left(k+l\right)$ 均为偶数时，$F(hkl) = f_A + 3f_B$,\ $I\left(\mathbf{K}_{hkl}\right)\propto\left|f_A(\mathbf{K}_{hkl}) + 3f_B(\mathbf{K}_{hkl})\right|^2$. \\[12pt]
+              当 $\left(h+k\right),\left(h+l\right),\left(k+l\right)$ 两奇一偶时，$F(hkl) = f_A - f_B$,\ $I\left(\mathbf{K}_{hkl}\right)\propto\left|f_A(\mathbf{K}_{hkl}) - f_B(\mathbf{K}_{hkl})\right|^2$.
+        \item 消光条件 $F(hkl) = 0$，据此可得 $\left(1,0,0\right),\left(0,1,0\right),\left(0,0,1\right),\left(1,1,0\right),\left(1,0,1\right)$.
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -116,16 +229,28 @@
     $$\sin{\theta_1} : \sin{\theta_2} : \sin{\theta_3} : \sin{\theta_4} 
     : \sin{\theta_5}: \sin{\theta_6}: \sin{\theta_7}: \sin{\theta_8}$$
     $$= \sqrt{3} : \sqrt{4} : \sqrt{8} : \sqrt{11} : \sqrt{12} : \sqrt{16} : \sqrt{19} : \sqrt{20}.$$
+    \begin{enumerate}[(a)]
+        \item 试确定对应于这些衍射角的晶面的衍射面指数；
+        \item 问该立方晶体时简单立方、面心立方还是体心立方？
+    \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item 晶面间距 $d_{hkl} = \dfrac{a}{\sqrt{h^2+k^2+l^2}}$，布拉格反射定律 $2d_{hkl}\sin{\theta} = n\lambda$， \\[12pt]
+              可得 $\sin{\theta}\propto\sqrt{\left(nh\right)^2 + \left(nk\right)^2 + \left(nl\right)^2}$. \\[12pt]
+              故衍射面指数 $\left(1,1,1\right),\left(2,0,0\right),\left(2,2,0\right),\left(1,1,3\right),\left(2,2,2\right),\left(4,0,0\right),\left(3,3,1\right),\left(4,2,1\right)$.
+        \item 简单立方允许所有 $\left(hkl\right)$ 值，没有消光. \\
+              体心立方要求 $\left(h+k+l\right)$ 为偶数. \\
+              面心立方则要求 $h,k,l$ 全奇或全偶. \\
+              故该立方晶体是面心立方。
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
     X 射线衍射的线宽。 \\
     假定一个有限大小的晶体，点阵节点由 $\displaystyle R_l = \sum_{i = 1}^{3}l_i\mathbf{a}_i$ 确定，
     其中 $l_i$ 取整数 $0,1,2,\cdots,N_i - 1$，每个结点处有全同的点散射中心。散射振幅可写为
-    $$u_{k\to k^\prime} = c\sum_{l_i = 0}^{N_i - 1}\text{e}^{-i\left(k^\prime - k\right)\cdot\sum\limits_{i = 1}^{3}l_i\mathbf{a}_i}.$$
+    $$u_{\mathbf{k}\to \mathbf{k}^\prime} = c\sum_{l_i = 0}^{N_i - 1}\text{e}^{-i\left(\mathbf{k}^\prime - \mathbf{k}\right)\cdot\sum\limits_{i = 1}^{3}l_i\mathbf{a}_i}.$$
     \begin{enumerate}[(a)]
         \item 证明散射强度 $\displaystyle I = \left|u\right|^2 = u^*u = c^2\prod_{i = 1}^{3}
               \dfrac{\sin^2{\dfrac{1}{2}N_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}}{\sin^2{\dfrac{1}{2}\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}},\ \Delta k = k^\prime - k$;
@@ -135,10 +260,42 @@
     \end{enumerate}
 \end{problem}
 \begin{solution}
-
+    \begin{enumerate}[(a)]
+        \item 对散射振幅分析，$\displaystyle u_{\mathbf{k}\to \mathbf{k}^\prime} = c\sum_{l_i = 0}^{N_i - 1}\text{e}^{-i\left(\mathbf{k}^\prime - \mathbf{k}\right)\cdot\sum\limits_{i = 1}^{3}l_i\mathbf{a}_i} 
+              = c\sum_{l_i = 0}^{N_i - 1}\text{e}^{-il_1\left(\Delta\mathbf{k}\cdot\mathbf{a}_1\right)}\cdot\text{e}^{-il_2\left(\Delta\mathbf{k}\cdot\mathbf{a}_2\right)}\cdot\text{e}^{-il_3\left(\Delta\mathbf{k}\cdot\mathbf{a}_3\right)}$. \\[12pt]
+              写成连乘形式 $\displaystyle u_{\mathbf{k}\to \mathbf{k}^\prime} = c\prod_{i = 1}^{3}\sum_{l_i = 0}^{N_i - 1}\text{e}^{-il_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}$. \\[12pt]
+              $\displaystyle \sum_{l_i = 0}^{N_i - 1}\text{e}^{-il_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)} = \frac{1 - \text{e}^{-i N_i \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}}{1 - \text{e}^{-i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}}
+              = \frac{\text{e}^{-i\frac{1}{2}N_i \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}\left(\text{e}^{i\frac{1}{2}N_i \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)} - \text{e}^{-i\frac{1}{2}N_i \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}\right)}{\text{e}^{-i\frac{1}{2}\left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}\left(\text{e}^{i\frac{1}{2}\left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)} - \text{e}^{-i\frac{1}{2}\left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}\right)}$. \\[12pt]
+              由欧拉公式可化简为 $\displaystyle \sum_{l_i = 0}^{N_i - 1}\text{e}^{-il_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)} = \frac{\text{e}^{-i\frac{1}{2}N_i \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}\sin{\frac{1}{2}N_i \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}}{\text{e}^{-i\frac{1}{2} \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}\sin{\frac{1}{2} \left(\Delta\mathbf{k} \cdot \mathbf{a}_i\right)}}$. \\[12pt]
+              故 $\displaystyle I = \left|u\right|^2 = u^*u = c^2\prod_{i = 1}^{3}\dfrac{\sin^2{\dfrac{1}{2}N_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}}{\sin^2{\dfrac{1}{2}\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}},\ \Delta k = k^\prime - k$.
+        \item 函数 $\sin^2{\dfrac{1}{2}N_i\left(\Delta\mathbf{k}\cdot\mathbf{a}_i\right)}$ 的第一个零点出现在：$\displaystyle\frac{1}{2} N_i (\Delta \mathbf{k} \cdot \mathbf{a}_i) = \pi \implies \Delta \mathbf{k} \cdot \mathbf{a}_i = \frac{2\pi}{N_i}$. \\[12pt]
+              即 $\Delta_i = \dfrac{2\pi}{N_i}$.
+        \item \textcolor{red}{当 $N_i\to\infty$ 时，每个求和式 $\displaystyle\sum_{l_i=0}^{N_i-1}\text{e}^{\left(-i l_i(\Delta\mathbf{k}\cdot\mathbf{a}_i)\right)} $ 转换为 $\delta$ 函数。因此，散射强度 $I$ 表现为 $\delta$ 函数的形式：
+              $$I = c^2 N^2 \delta_{\mathbf{k}' - \mathbf{k}, \mathbf{K}_h}$$
+              其中 $\mathbf{K}_h$ 是倒格矢，满足布拉格条件。}
+    \end{enumerate}
 \end{solution}
+\begin{note}
+    \begin{itemize}
+        \item (c)不是很理解。
+    \end{itemize}
+\end{note}
 
 \newpage
 \section{第二章习题}
+
+\begin{problem}
+    导出 NaCl 型离子晶体中排斥势指数的下列关系式：
+    $$n = 1 + \frac{4\pi\varepsilon_0\times18Br_0^4}{\alpha\text{e}^2}\left(\text{SI单位}\right)$$
+    其中 $r_0$ 为近邻离子间距，$\alpha$ 为以 $r_0$ 为单位的马德隆常数，$B$ 为体积弹性模量。
+    已知 NaCl晶体的 $B = 2.4\times10^{10}\text{N}/\text{m}^2$, $r_0 = 2.81\mathring{A}$，求 NaCl 的 $n = ?$
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    
+\end{problem}
 
 \end{document}
