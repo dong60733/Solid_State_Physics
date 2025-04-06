@@ -291,11 +291,72 @@
     已知 NaCl晶体的 $B = 2.4\times10^{10}\text{N}/\text{m}^2$, $r_0 = 2.81\mathring{A}$，求 NaCl 的 $n = ?$
 \end{problem}
 \begin{solution}
-    
+    $\alpha = 1.747558$, $\varepsilon = 8.854\times10^{-12}$. 代入公式有
+    $$n = 1 + \frac{4\pi\varepsilon_0\times18Br_0^4}{\alpha\text{e}^2}
+    = 1 + \frac{4\pi\times8.854\times10^{-12}\times18\times2.4\times10^{10}\times\left(2.81\times10^{-10}\right)^4}
+    {1.747588\times\left(1.60219\times10^{-19}\right)} = 7.78$$
+\end{solution}
+\begin{note}
+    见书 P63,P64。 \\
+    设晶体有 $N$ 个元胞，晶体内能 $U = N\left(-\dfrac{A_1}{r} + \dfrac{A_n}{r}\right), A_1 = \dfrac{\alpha e^2}{4\pi\varepsilon_0}, A_n = 6b, V = 2Nr^3$. \\[12pt]
+    由平衡位置能量极小有 $\dfrac{\text{d}U(r)}{\text{d}r} = N\left(\dfrac{\alpha e^2}{4\pi\varepsilon_0r^2} - \dfrac{6nb}{r^{n+1}}\right) = 0$,
+    即 $6b = \dfrac{\alpha e^2r_0^{n-1}}{4n\pi\varepsilon_0}$. \\[12pt]
+    代回内能公式有 $U = N\dfrac{\alpha e^2}{4\pi\varepsilon_0}\left(-\dfrac{1}{r} + \dfrac{r_0^{n-1}}{nr^{n}}\right)$. \\[12pt]
+    体积弹性模量 $B = V\dfrac{\text{d}^2U}{\text{d}V^2}\Big|_{r_0} = \dfrac{1}{18Nr_0}\dfrac{\text{d}^2}{\text{d}r^2}\Big|_{r_0} = \dfrac{(n-1)\alpha e^2}{4\pi\varepsilon_0\times18r_0^4}$. \\[12pt]
+    晶体结合能 $W = -U(r_0) = \dfrac{1}{4\pi\varepsilon}\dfrac{N\alpha e^2}{r_0}\left(1 - \dfrac{1}{n}\right)$.
+\end{note}
+
+\begin{problem}
+    带 $\pm e$ 电荷的两种离子相间排成一维晶格，设 N 为元胞数，$\dfrac{A_n}{r_0^n}$ 为排斥势，$r_0$ 为正负离子间距。求证，当 N 很大时有：
+    \begin{enumerate}[(a)]
+        \item 马德隆常数 $\alpha = 2\ln{2}$;
+        \item 结合能 $W = \dfrac{Ne^2 2\ln{2}}{4\pi\varepsilon_0r_0}\left(1-\dfrac{1}{n}\right)$;
+        \item 当压缩晶格时 $r\to r_0\left(1-\delta\right)$，且 $\delta\ll1$，则需做功 $\dfrac{1}{2}\left(2Nr_0\right)B\delta^2$，其中线弹模
+              $$B = \frac{\left(n-1\right)N 2\ln{2}}{8\pi\varepsilon_0r_0^2}e^2$$
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[(a)]
+        \item 取一个电子分析，其静电势能 $\displaystyle u = 2\times\left(-\dfrac{e^2}{4\pi\varepsilon_0}\sum_{i=1}^{\infty}\frac{(-)^i}{ir_0}\right)$. \\[12pt]
+              而 $\displaystyle\ln{(1+x)} = \sum_{n=1}^{\infty}\frac{(-)^{n-1}}{n}x$, 取 $x=1$ 得 $\alpha = 2\ln2$.
+        \item 内能还需考虑排斥势能，在单电子分析上乘元胞数 $N$。 \\[12pt]
+              同习题9注记，此时 $\alpha = 2\ln{2}$，可得 $W = \dfrac{Ne^2 2\ln{2}}{4\pi\varepsilon_0r_0}\left(1-\dfrac{1}{n}\right)$.
+        \item 将内能函数展开，一次项由于平衡位置能量极小为零，故在 $\delta\to0$时仅需考虑二次项变化。 \\[12pt]
+              $U(r) \approx U(r_0) + \dfrac{1}{2}\cdot\dfrac{\text{d}^2 U}{\text{d}r^2}\Big|_{r=r_0}(r-r_0)^2 = \dfrac{\alpha N e^2(n-1)}{8\pi\varepsilon_0r_0^3}(r-r_0)^2$. \\[12pt]
+              做功等于内能增量 $W = U(r_0(1-\delta)) - U(r_0) = \dfrac{\alpha N e^2(n-1)}{8\pi\varepsilon_0r_0^3}r_0^2\delta^2 = \dfrac{1}{2}(2Nr_0)B\delta^2$. \\[12pt]
+              故 $\displaystyle B = \frac{\left(n-1\right)N 2\ln{2}}{8\pi\varepsilon_0r_0^2}e^2$.
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
-    
+    量子固体。 \\
+    在量子固体中，起主导作用的排斥能是原子的零点振动能，考虑晶态 $^4\text{He}$ 的一个粗略一维模型，
+    即每个氦原子局限在一段长为 L 的线段上，每段内的基态波函数取为半波长为 L 的自由粒子波函数。
+    \begin{enumerate}[(a)]
+        \item 试求每个粒子的零点振动能；
+        \item 推导维持该线段不发生膨胀所需力的表达式；
+        \item 在平衡时，动能所引起的膨胀倾向被范德瓦耳斯相互作用所平衡，假定最近邻间的范德瓦耳斯能为 $U(L) = 1.6L^{-6}10^{-79}J$，其中 L 以 m 为单位，求 L 的平衡值。
+    \end{enumerate}
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[(a)]
+        \item 波长 $\lambda = 2L$, 有 $p = \dfrac{h}{\lambda} = \dfrac{h}{2L}$, $T = \dfrac{p^2}{2m} = \dfrac{h^2}{8mL^2}$.
+        \item 记 $U(L)$ 为吸引势，总能量 $E(L) = U(L) + T(L) = U(L) + \dfrac{h^2}{8mL^2}$. \\[12pt]
+              平衡位置有 $\dfrac{\text{d}E(L)}{\text{d}L} = \dfrac{\text{d}U(L)}{\text{d}L} - \dfrac{h^2}{4mL^3} = 0$. \\[12pt]
+              故不发生膨胀所需力为 $F(L) = -\dfrac{\text{d}U(L)}{\text{d}L} = -\dfrac{h^2}{4mL^3}$.
+        \item 平衡位置有 $\dfrac{\text{d}E(L)}{\text{d}L} = \dfrac{\text{d}U(L)}{\text{d}L} - \dfrac{h^2}{4mL^3} = 0$，代入 $U(L) = 1.6L^{-6}10^{-79}J$ 得 \\[12pt]
+              $L = \left(\dfrac{4m\times9.6\times10^{-79}}{h^2}\right)^{\frac{1}{4}} = \left(\dfrac{4\times1.67\times10^{-27}\times9.6\times10^{-79}}{6.626\times10^{-34}}\right)^{\frac{1}{4}} = 4.918\times10^{-10}\text{m} = 4.918\mathring{A}$. 
+    \end{enumerate}
+\end{solution}
+\begin{note}
+    \begin{itemize}
+        \item (a)基态波函数满足一维无限深势阱条件：$\displaystyle\Psi_0(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{\pi x}{L}\right)$,
+              动能算符 $\displaystyle\hat{T} = -\frac{\hbar^2}{2m}\frac{\text{d}^2}{\text{d}x^2}$. \\[12pt]
+              零点振动能为动能期望值$$E_T = \langle\Psi_0|\hat{T}|\Psi_0\rangle
+              = \frac{\hbar^2}{2m}\int_0^L\left|\frac{d\Psi_0}{dx}\right|^2\text{d}x
+              = \frac{\hbar^2\pi^2}{2mL^2}\cdot\frac{1}{L}\int_0^L \sin^2\left(\frac{\pi x}{L}\right)\text{d}x
+              = \frac{\hbar^2\pi^2}{4mL^2}.$$
+    \end{itemize}
+\end{note}
 
 \end{document}
