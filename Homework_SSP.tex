@@ -368,15 +368,93 @@
     $$\omega^2 = \frac{\beta_1 + \beta_2}{m}\left\{1 \pm \left[1 - \frac{4\beta_1\beta_2\sin^2{\dfrac{qa}{2}}}{\left(\beta_1 + \beta_2\right)}\right]^{\frac{1}{2}}\right\}.$$
 \end{problem}
 \begin{solution}
-    
+    和一维双原子链振动类似，一个周期内有两个不同原子，A原子左侧力常数为 $\beta_1$，右侧力常数为 $\beta_2$，
+    B原子左侧力常数为 $\beta_2$，右侧力常数为 $\beta_1$。 \\
+    \hspace*{3em} 不妨记第 $n$ 个A原子的位移为 $u_n$，第 $n$ 个B原子位移为 $v_n$，写出A、B原子的动力学（运动）方程：
+    \begin{equation*}
+        m\ddot{u}_n = \beta_1(v_{n-1} - u_n) + \beta_2(v_n - u_n)
+    \end{equation*}
+    \begin{equation*}
+        m\ddot{v}_n = \beta_1(u_{n+1} - v_n) + \beta_2(u_n - v_n)
+    \end{equation*}
+    将格波试探解 $\displaystyle u_n = A\text{e}^{i(qna - \omega t)}$,\ $\displaystyle v_n = B\text{e}^{i(qna - \omega t)}$ 代入运动方程有
+    \begin{equation*}
+        - m\omega^2 A = \beta_1(B\text{e}^{-iqa} - A) + \beta_2(B - A)
+    \end{equation*}
+    \begin{equation*}
+        - m\omega^2 B = \beta_1(A\text{e}^{iqa} - B) + \beta_2(A - B)
+    \end{equation*}
+    写成矩阵形式，有
+    \begin{equation*}
+        \begin{bmatrix}
+            m\omega^2 - \beta_1 - \beta_2 & \beta_1\text{e}^{-iqa} + \beta_2 \\
+            \beta_1\text{e}^{iqa} + \beta2 & m\omega^2 - \beta_1 -\beta_2
+        \end{bmatrix}
+        \begin{bmatrix}
+            A \\
+            B
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\
+            0
+        \end{bmatrix}
+    \end{equation*}
+    有解的条件为系数矩阵行列式为零，即
+    \begin{equation*}
+        \begin{vmatrix}
+            m\omega^2 - \beta_1 - \beta_2 & \beta_1\text{e}^{-iqa} + \beta_2 \\
+            \beta_1\text{e}^{iqa} + \beta2 & m\omega^2 - \beta_1 -\beta_2
+        \end{vmatrix}
+        = 0
+    \end{equation*}
+    化简得到
+    \begin{equation*}
+        \left[m\omega^2 - (\beta_1 + \beta_2)\right]^2 - \left(\beta_1^2 + 2\beta_1\beta_2\cos{qa} + \beta_2^2\right) = 0
+    \end{equation*}
+    即
+    \begin{equation*}
+        \left[m\omega^2 - (\beta_1 + \beta_2)\right]^2 = (\beta_1 + \beta_2)^2 - 4\beta_1\beta_2\sin^2{\frac{qa}{2}}
+    \end{equation*}
+    故可得到格波色散关系为
+    \begin{equation*}
+        \omega^2 = \frac{\beta_1 + \beta_2}{m}\left\{1 \pm \left[1 - \frac{4\beta_1\beta_2\sin^2{\dfrac{qa}{2}}}{\left(\beta_1 + \beta_2\right)}\right]^{\frac{1}{2}}\right\}
+    \end{equation*}
+    其中 光学支 取 $+$ 号，声学支 取 $-$ 号。
 \end{solution}
+\begin{note}
+    得到运动方程前的分析:
+    $$V(u_n) = \dfrac{1}{2}(u_n - v_{n-1})^2 + \dfrac{1}{2}(v_n - u_n)^2$$
+    $$f(u_n) = -\dfrac{\partial V(u_n)}{\partial u_n} = \beta_1(v_{n-1} - u_n) + \beta_2(v_n - u_n)$$
+    声学支、光学支的分析:
+    \begin{itemize}
+        \item 长波极限 $qa = \pi$ 时，光学支声子的色散关系近似为
+              $$\omega_+(q) = \sqrt{\frac{2(\beta_1 + \beta_2)}{m}}\left[1 - \frac{1}{8}\frac{\beta_1\beta_2}{(\beta_1 + \beta_2)^2}q^2a^2\right]$$
+        \item 长波极限 $qa = \pi$ 时，声学支声子的色散关系退化为连续介质下的声波
+              $$\omega_-(q) = \sqrt{\frac{\beta_1\beta_2/(\beta_1 + \beta_2)}{2m}}aq = c_sq$$
+              声速为
+              $$c_s = \sqrt{\frac{[\beta_1\beta_2/(beta_1 + \beta_2)]a}{2m/a}} = \sqrt{\frac{B}{\rho}}$$
+              由此得到线弹性模量 $B = \dfrac{\beta_1\beta_2}{\beta_1+\beta_2}a$，质量密度为 $\rho = \dfrac{2m}{a}$.
+    \end{itemize}
+\end{note}
 
 \begin{problem}
     具有两维正方点阵的某简单晶格，设原子质量为 $m$，晶格常量为 $a$，最近邻原子间相互作用的恢复力常数为 $\beta$，假定原子垂直于点阵平面作横振动，
     试证明此二维系统的格波色散关系为 $\displaystyle m\omega^2 = 2\beta\left[2 - \cos{(q_x a)} - \cos{(q_y a)}\right]$.
 \end{problem}
 \begin{solution}
-    
+    取原点处原子($u$)分析，受到周围四个原子($u_{10},u_{01},u_{-10},u_{0-1}$)的作用，其运动方程为
+    \begin{equation*}
+        m\ddot{u} = \beta(u_{10} + u_{01} + u_{-10} + u_{0-1} - u)
+    \end{equation*}
+    将格波试探解 $u_{mn} = A\text{e}^{iq_xma + iq_yna - i\omega t}$ 代入运动方程有
+    \begin{equation*}
+        -m\omega^2A = \beta(\text{e}^{q_xa} + \text{e}^{q_ya} + \text{e}^{-q_xa} + \text{e}^{-q_ya} - 4)A
+    \end{equation*}
+    化简得到
+    \begin{equation*}
+        m\omega^2 = 2\beta\left[2 - \cos{(q_xa)} - \cos{(q_ya)}\right]
+    \end{equation*}
 \end{solution}
 
 \begin{problem}
@@ -387,7 +465,32 @@
     \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item 对于一维单原子链振动，由书P72可知色散关系为 $\displaystyle\omega(q) = 2\sqrt{\frac{\beta}{m}}\left|\sin{\left(\frac{1}{2}qa\right)}\right|$.  \\[12pt]
+              代入约化声子态密度表达式
+              $$\rho(\omega) = \frac{1}{N}\sum_{q}\delta\left[\omega - \omega(q)\right] = \frac{a}{2\pi}\int_{-\frac{\pi}{a}}^{\frac{\pi}{a}}\text{d}q\delta\left[\omega - \omega(q)\right]$$
+              记 $\displaystyle\omega_m = 2\sqrt{\frac{\beta}{m}}$ 有 
+              $$\rho(\omega) = \frac{a}{\pi}\left|\frac{\text{d}q}{\text{d}\omega(q)}\right|_{\omega} = \frac{2}{\pi}\frac{1}{\sqrt{{\omega_m^2-\omega^2}}}$$
+              \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.7\textwidth]{assets/DOS_1.png}
+                \caption{一维单原子链振动的声子态密度}
+              \end{figure}
+        \item 对于一维双原子链振动，由书P78-79可知色散关系为
+              $$\omega_{\pm}^2(q) = \beta\frac{m_2 + m_1}{m_2m_1}\left\{1\pm\left[1 - \frac{4m_2m_1}{(m_2+m_1)^2}\sin^2{\frac{1}{2}qa}\right]^{\frac{1}{2}}\right\}$$
+              为得到声子态密度 $\displaystyle\rho(\omega) = \frac{a}{\pi}\left|\frac{\text{d}q}{\text{d}\omega(q)}\right|_{\omega}$，不妨记 $\displaystyle\mu = \frac{m_1m_2}{m_1 + m_2}$，对色散关系两边求导有
+              $$2\omega\text{d}\omega = \frac{\dfrac{\beta^2a}{m_1m_2}\sin{qa}\text{d}q}{\dfrac{\beta}{\mu}-\omega^2}$$
+              得到
+              $$\frac{\text{d}q}{\text{d}\omega} = \frac{\dfrac{2m_1m_2}{\beta^2a}\omega\left(\dfrac{\beta}{\mu}-\omega^2\right)}{\sin{qa}}$$
+              由于 $\rho(\omega)$ 是 $\omega$ 的函数，应反解色散关系将 $q(\omega)$ 代入上式，
+              $$\sin{qa} = \frac{m_1m_2\omega}{2\beta^2}\sqrt{\left(\frac{2\beta}{m_1} - \omega^2\right)\left(\frac{2\beta}{m_2} - \omega^2\right)\left(\frac{2\beta}{\mu} - \omega^2\right)}$$
+              $$\rho(\omega) = \frac{4}\pi\frac{\left|\dfrac{\beta}{\mu} - \omega^2\right|}{\sqrt{\left(\dfrac{2\beta}{m_1} - \omega^2\right)\left(\dfrac{2\beta}{m_2} - \omega^2\right)\left(\dfrac{2\beta}{\mu} - \omega^2\right)}}$$
+              \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.7\textwidth]{assets/DOS_2.png}
+                \caption{一维双原子链振动的声子态密度}
+              \end{figure}
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -404,18 +507,36 @@
     式中 $\displaystyle\omega_{min} = \omega_0 - A\left(\frac{6\pi^2 N}{V}\right)^{\frac{2}{3}}$，$N$ 为晶体的元胞数。
 \end{problem}
 \begin{solution}
-    
+    根据三维声子态密度
+    $$\rho(\omega) = \sum_{q}\delta[\omega - \omega(q)] = \frac{V}{(2\pi)^3}\int\text{d}^3q\delta[\omega - \omega(q)] = \frac{V}{(2\pi)^3}\iint\frac{\text{d}S_\omega}{\left|\nabla\omega(q)\right|}$$
+    而 $\omega(q) = \omega_0 - Aq^2$，等频率面为球面，$\displaystyle\iint\text{d}S_\omega = 4\pi q^2$, $\nabla\omega(q) = \dfrac{\text{d}\omega(q)}{\text{d}q} = -2Aq$.
+    $$\rho(\omega) = \frac{V}{2\pi^2}q^2\frac{1}{2Aq} = \frac{V}{4\pi^2A}q = \frac{V}{4\pi^2 A^{\frac{3}{2}}}(\omega_0 - \omega)^{\frac{1}{2}}$$
+    由声子态密度守恒，
+    $$N = \int_{\omega_{min}}^{\omega_0}\rho(\omega)\text{d}\omega = \frac{V}{4\pi^2 A^{\frac{3}{2}}}\left(\frac{2}{3}\right)\left(\omega_0 - \omega_{min}\right)^{\frac{3}{2}}$$
+    解得 
+    $$\omega_{min} = \omega_0 - A\left(\frac{6\pi^2 N}{V}\right)^{\frac{2}{3}}$$
 \end{solution}
 
 \begin{problem}
     设 d 维简单晶格中，声子色散关系 $\omega(\mathbb{q})$ 与 $q^{\mu}$ 成正比，试证明
     \begin{enumerate}[(a)]
-        \item 声子态密度 $\rho = B\omega^{\frac{d}{\mu - 1}}$;
+        \item 声子态密度 $\rho = B\omega^{\frac{d}{\mu} - 1}$;
         \item 比热容 $C_V = CT^{\frac{d}{\mu}}$。$B$、$C$ 为常量。
     \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item 设 $\omega(q) = Aq^{\mu}$，由约化声子态密度定义式有
+              $$\rho(\omega) = \frac{1}{N} \sum_{q}\delta[\omega - \omega(q)] = \frac{\Omega}{(2\pi)^d}\int\text{d}^qq\delta[\omega - \omega(q)]\varpropto q^{d-1}\left|\frac{\text{d}q}{\text{d}\omega(q)}\right|$$
+              故有
+              $$\rho(\omega) \varpropto \frac{q^{d-1}}{q^{\mu-1}} \varpropto q^{d-\mu} \varpropto \omega^{\frac{d}{\mu} - 1}$$
+              即
+              $$\rho = B\omega^{\frac{d}{\mu} - 1}$$
+        \item 内能为
+              $$U = \int_{0}^{\omega_D}\frac{\hbar\omega}{\text{e}^{\hbar\omega/(K_BT)} - 1}B\omega^{\frac{d}{\mu} - 1}\text{d}\omega = \frac{B(k_BT)^{\frac{d}{\mu}+1}}{\hbar^{\frac{d}{\mu}}}\int_{0}^{\omega_D}\frac{(\dfrac{\hbar\omega}{k_BT})^{\frac{d}{\mu}}\text{d}(\dfrac{\hbar\omega}{k_BT})}{\text{e}^{\hbar\omega/(K_BT)} - 1}$$
+              令 $x = \dfrac{\hbar\omega}{k_BT}$，故当 $T\to 0$时，$x\to\infty$，此时积分项近似为常数，故有 
+              $$U\varpropto T^{\frac{d}{\mu} + 1} \Longrightarrow C_V = \left(\frac{\partial U}{\partial T}\right)_V = CT^{\frac{d}{\mu}}$$
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -437,5 +558,14 @@
         \item 根据德拜模型证明 $\gamma = -\dfrac{\partial\ln{\theta_D}}{\partial\ln{V}}$，其中 $\theta_D = \dfrac{\hbar\omega_D}{k_B}$。
     \end{enumerate}
 \end{problem}
+
+% \newpage
+% \section{第四章习题}
+
+% \begin{problem}
+%     求证由 $\delta$ 函数构成的一维周期势场 $\displaystyle V(x) = V_0\sum_{l = -\infty}^{+\infty}\delta(x - la)$ 中，
+%     单电子能谱由下列克勒尼希-彭尼(Kronig-Penny)关系决定：$\displaystyle\cos{ka} = \dfrac{maV_0\sin{\alpha a}}{\alpha a} + \cos{(\alpha a)}, \alpha^2 = 2mE/\hbar^2$。
+%     由此结果说明每一能带色散关系均满足 $E(k+K_h) = E(k)$，当 $V_0$ 为负数，该模型是单电子在一维原子链中运动的一种很好的描述。
+% \end{problem}
 
 \end{document}
