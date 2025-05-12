@@ -655,13 +655,143 @@
     \end{enumerate}
 \end{solution}
 
-% \newpage
-% \section{第四章习题}
+\newpage
+\section{第四章习题}
 
-% \begin{problem}
-%     求证由 $\delta$ 函数构成的一维周期势场 $\displaystyle V(x) = V_0\sum_{l = -\infty}^{+\infty}\delta(x - la)$ 中，
-%     单电子能谱由下列克勒尼希-彭尼(Kronig-Penny)关系决定：$\displaystyle\cos{ka} = \dfrac{maV_0\sin{\alpha a}}{\alpha a} + \cos{(\alpha a)}, \alpha^2 = 2mE/\hbar^2$。
-%     由此结果说明每一能带色散关系均满足 $E(k+K_h) = E(k)$，当 $V_0$ 为负数，该模型是单电子在一维原子链中运动的一种很好的描述。
-% \end{problem}
+\begin{problem}
+    求证由 $\delta$ 函数构成的一维周期势场 $\displaystyle V(x) = V_0\sum_{l = -\infty}^{+\infty}\delta(x - la)$ 中，
+    单电子能谱由下列克勒尼希-彭尼(Kronig-Penny)关系决定：$\displaystyle\cos{ka} = \dfrac{maV_0\sin{\alpha a}}{\alpha a} + \cos{(\alpha a)}, \alpha^2 = 2mE/\hbar^2$。
+    由此结果说明每一能带色散关系均满足 $E(k+K_h) = E(k)$，当 $V_0$ 为负数，该模型是单电子在一维原子链中运动的一种很好的描述。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    电子在周期场中的势能
+    $$
+    V(x) = \left\{
+    \begin{aligned}
+        &\frac{1}{2}m\omega^2\left[b^2 - (x - na)^2\right], &na - b \leq x \leq na + b \\
+        &0, &(n - 1)a + b \leq x \leq na - b
+    \end{aligned}
+    \right.
+    $$
+    且 $a = 4b$，$\omega$ 是常量。试画出该势能曲线，并求该势能的平均值。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    用近自由电子近似处理上题，求此晶体第一及第二能隙宽度。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    设两维正方晶格的周期势为
+    $$V(\mathbf{r}) = V(x,y) = - 4U\cos{\frac{2\pi x}{a}}\cos{\frac{2\pi y}{a}}$$
+    $a$ 为晶格常量，求：
+    \begin{enumerate}[(a)]
+        \item $V(\mathbf{r})$ 按倒格矢展开的傅立叶系数 $V(\mathbf{K}_h)$;
+        \item 对近自由电子近似而言，在哪些布里渊区界线上有布拉格反射，并写出相应的能隙。
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    已知近自由电子近似在布里渊区边界附近能量为
+    $$E_{\pm}(\mathbf{k}) = \frac{1}{2}\left\{\left[E^0(\mathbf{k}) + E^0(\mathbf{k} + \mathbf{K}_h)\right] \pm \sqrt{\left[E^0(\mathbf{k}) - E^0(\mathbf{k} + \mathbf{K}_h)\right]^2 + 4\left|V(\mathbf{K}_h)\right|^2}\right\}$$
+    证明在布里渊区界面上，垂直于布里渊区界面的电子速度分量为0。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    设二维长方晶格的周期势 $\displaystyle V(\mathbf{r}) = V_0 + A\cos{\frac{4\pi x}{a} + B\cos{\frac{2\pi y}{a}}}$，
+    试用近自由电子近似求电子状态为 $\displaystyle\mathbf{k} = \left(\frac{2\pi}{a}, k_y\right)$ 的能量及其相应的波函数。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    用紧束缚近似方法求出面心立方晶体 s态电子能带
+    $$E(\mathbf{k}) = E_s - J_0 - 4J_1\left(\cos{\frac{k_x a}{2}}\cos{\frac{k_y a}{2}} + \cos{\frac{k_y a}{2}}\cos{\frac{k_z a}{2}} + \cos{\frac{k_z a}{2}}\cos{\frac{k_x a}{2}}\right)$$
+    并求能带底部的有效质量。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    某晶体中电子的等能面是椭球面 $\displaystyle E(\mathbf{k}) = \frac{\hbar^2}{2}\left(\frac{k_x^2}{m_1} + \frac{k_y^2}{m_2} + \frac{k_z^2}{m_3}\right)$，求该能谱的电子态密度。
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\newpage
+\section{第五章习题}
+
+\begin{problem}
+    二维自由电子气系统，每单位面积中的电子数为 $n$，试求出系统的
+    \begin{enumerate}[(a)]
+        \item 电子能态密度 $N(E)$;
+        \item 有限温度下的化学势 $\displaystyle\mu(T) = k_BT\ln{\left[\text{exp}\left(\frac{nh^2}{4\pi mk_BT}\right) - 1\right]}$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    设阻尼项为 $-m^*\bm{\upsilon}\tau$，试证明当 $\mathbf{E} = (E_x, E_y,E_z), \mathbf{B} = (0, 0, B)$ 时直流电导率公式为
+    \begin{equation*}
+        \begin{pmatrix}
+            J_x \\
+            J_y \\
+            J_z
+        \end{pmatrix}
+        =
+        \frac{\sigma}{1 + (\omega_c\tau)^2}
+        \begin{pmatrix}
+            1 & -\omega_c\tau & 0 \\
+            \omega_c\tau & 1 & 0 \\
+            0 & 0 & 1 + (\omega_c\tau)^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            E_x \\
+            E_y \\
+            E_z
+        \end{pmatrix}
+    \end{equation*}
+    其中， $\sigma = ne^2\tau / m^*$， $\omega_c = eB / m^*$.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    电子漂移速度 $\bm{\upsilon}$ 满足方程 $\displaystyle m^*\left(\frac{\text{d}\bm{\upsilon}}{\text{d}t} + \frac{\bm{\upsilon}}{\tau}\right) = -e\mathbf{E}$。
+    试证明频率为 $\omega$ 的电导率为 $\displaystyle\bm{\sigma}(\omega) = \sigma(0)\frac{1 + i\omega\tau}{1 + (\omega\tau)^2}$，其中 $\sigma(0) = ne^2\tau / m^*$.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}
+    在低温下实验测出某绝缘体晶体的比热容与温度的关系 $C_V / T^{3 / 2} - T^{3 / 2}$为一直线，斜率为 $B$，截距为 $A$，如图所示。
+    \begin{enumerate}[(a)]
+        \item 写出低温下 $C_V$ 与 $T$ 关系；
+        \item 若已知直线的斜率部分来源于声子对比热容的贡献，求 $B$ 与德拜温度 $\theta_D$ 的关系；
+        \item 设截距部分来源于某波色子对比热容的贡献，试估计该准粒子的色散关系中 $\omega(\bm{q})\approx q^\mu$ 的 $\mu$.
+    \end{enumerate}
+\end{problem}
 
 \end{document}
