@@ -518,7 +518,7 @@
 \end{solution}
 
 \begin{problem}
-    设 d 维简单晶格中，声子色散关系 $\omega(\mathbb{q})$ 与 $q^{\mu}$ 成正比，试证明
+    设 d 维简单晶格中，声子色散关系 $\omega(\mathbf{q})$ 与 $q^{\mu}$ 成正比，试证明
     \begin{enumerate}[(a)]
         \item 声子态密度 $\rho = B\omega^{\frac{d}{\mu} - 1}$;
         \item 比热容 $C_V = CT^{\frac{d}{\mu}}$。$B$、$C$ 为常量。
@@ -543,8 +543,66 @@
     求在一维单原子链中，$\omega > \omega_m$ (截止频率)声子模式的阻尼系数 $\alpha$ 与 $\omega$ 的关系。
 \end{problem}
 \begin{solution}
-    
+    由书P72可得一维单原子链色散关系为
+    $$\omega(q) = 2\sqrt{{\frac{\beta}{m}}}\left|\sin{\left(\frac{1}{2}qa\right)}\right|$$
+    截止频率 $\displaystyle \omega_m = 2\sqrt{{\frac{\beta}{m}}}$，显然当 $\omega > \omega_m$ 时，$q$应为复数，不妨记 $q = x + iy$，故有
+    $$\omega(q) = \pm\omega_m\sin{\left(\frac{1}{2}ax + i\frac{1}{2}ay\right)}$$
+    由复数正弦公式
+    $$\sin{(x+iy)}= \sin{x}\cdot\cosh{y} + i\cos{x}\cdot\sinh{y}$$
+    可以得到
+    $$\omega(q) = \pm\omega_m\left(\sin{\frac{1}{2}ax}\cdot\cosh{\frac{1}{2}ay} + i\cos{\frac{1}{2}ax}\cdot\sinh{\frac{1}{2}ay}\right)$$
+    由于 $\omega$ 为实数，得到
+    $$x = \frac{\pi}{a},\quad \omega = \omega_m\cosh{\frac{1}{2}ay}$$
+    代回格波试探解 $\displaystyle u_n = A\text{e}^{i(qna - \omega t)}$ 得到
+    $$u_n = A\text{e}^{i\left(\frac{\pi}{a}\pm\frac{2}{a}\cosh^{-1}{\frac{\omega}{\omega_m}}\right)na - i\omega t} = A\text{e}^{in\pi}\text{e}^{2n\cosh^{-1}{\frac{\omega}{\omega_m}}}\text{e}^{-i\omega t}$$
+    指数衰减因子\footnote{只有轻杂质才会在能隙内或带边外产生 $\omega > \omega_m$ 的局域模，可在此基础上进行分析。} $\displaystyle\alpha = 2\cosh^{-1}{\frac{\omega}{\omega_m}}$.
 \end{solution}
+\begin{note}
+    复数正弦公式推导：
+    \begin{enumerate}
+        \item \textbf{定义复数正弦函数}\\  
+        基于欧拉公式 $\text{e}^{iz} = \cos z + i \sin z$，复数正弦可定义为：
+        $$
+        \sin z = \frac{\text{e}^{iz} - \text{e}^{-iz}}{2i}
+        $$
+        其中 $z = x + iy$（$x, y \in \mathbb{R}$）。
+    
+        \item \textbf{代入复数角度}\\ 
+        将 $z = x + iy$ 代入并展开指数项：
+        $$
+        \begin{aligned}
+            \sin(x + iy) &= \frac{\text{e}^{i(x + iy)} - \text{e}^{-i(x + iy)}}{2i} \\
+            &= \frac{\text{e}^{-y + ix} - \text{e}^{y - ix}}{2i}
+        \end{aligned}
+        $$
+
+        \item \textbf{分离实部与虚部}\\
+        进一步展开欧拉公式中的三角函数：
+        $$
+        \begin{aligned}
+            \text{e}^{-y} (\cos x + i \sin x) &= \text{e}^{-y} \cos x + i \text{e}^{-y} \sin x, \\
+            \text{e}^{y} (\cos x - i \sin x) &= \text{e}^{y} \cos x - i \text{e}^{y} \sin x.
+        \end{aligned}
+        $$
+        代入原式后合并同类项：
+        $$
+        \sin(x + iy) = \frac{(\cos x)(\text{e}^{-y} - \text{e}^{y}) + i (\sin x)(e^{-y} + \text{e}^{y})}{2i}
+        $$
+    
+        \item \textbf{引入双曲函数}\\
+        利用双曲函数的定义 $\displaystyle\cosh y = \frac{\text{e}^{y} + \text{e}^{-y}}{2}$ 和 $\displaystyle\sinh y = \frac{\text{e}^{y} - \text{e}^{-y}}{2}$，化简得到：
+        $$
+        \begin{aligned}
+            \sin(x + iy) &= \frac{-2\cos x \sinh y + i (2 \sin x \cosh y)}{2i} \\
+            &= \sin x \cosh y + i \cos x \sinh y
+        \end{aligned}
+        $$
+        最终公式为：
+        \begin{equation*}
+            \boxed{ \sin(x + iy) = \sin x \cosh y + i \cos x \sinh y }
+        \end{equation*}
+    \end{enumerate}
+\end{note}
 
 \begin{problem}
     格林艾森常数。
@@ -552,12 +610,50 @@
         \item 证明频率为 $\omega$ 的声子模式的自由能为 $k_BT\ln{\left[2\sinh{\left(\dfrac{\hbar\omega}{2k_BT}\right)}\right]}$;
         \item 如果 $\Delta$ 是体积的相对变化量，则晶体的自由能密度可以写为
               $$\displaystyle F(\Delta,T) = \frac{1}{2}B\Delta^2 + k_BT\sum_{q}\ln{\left\{2\sinh{\left[\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right]}\right\}}$$
-              其中 $B$ 为体积弹性模量。假定 $\omega(\mathbb{q})$ 与体积关系为 $\dfrac{\text{d}\omega(\mathbf{q})}{\omega(\mathbf{q})} = -\gamma\Delta$，$\gamma$为格林艾森常数，
+              其中 $B$ 为体积弹性模量。假定 $\omega(\mathbf{q})$ 与体积关系为 $\dfrac{\text{d}\omega(\mathbf{q})}{\omega(\mathbf{q})} = -\gamma\Delta$，$\gamma$为格林艾森常数，
               且与模 $\mathbf{q}$ 无关。证明当 $\displaystyle B\Delta = \gamma\sum_{q}\frac{1}{2}\hbar\omega(\mathbf{q})\coth{\left[\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right]}$ 时，
               $F$ 对 $\Delta$ 为极小。利用内能密度的定义，证明 $\Delta$ 可近似表达为 $\Delta = \dfrac{\gamma U(T)}{B}$。
         \item 根据德拜模型证明 $\gamma = -\dfrac{\partial\ln{\theta_D}}{\partial\ln{V}}$，其中 $\theta_D = \dfrac{\hbar\omega_D}{k_B}$。
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[(a)]
+        \item 根据书P83-84声子定义可知，晶格振动谐振子能谱为 
+              $$E = \hbar\omega\left(n + \dfrac{1}{2}\right)$$
+              由书P107-108知系统自由能为
+              $$F^V(T,V) = -k_BT\ln{Z^V}$$
+              其中 $Z^V$ 为系统的配分函数
+              $$Z^V = \sum_n^{\infty}\text{e}^{-\frac{(n+\frac{1}{2})\hbar\omega}{k_BT}} = \frac{\text{e}^{-\frac{\hbar\omega}{2k_BT}}}{1 - \text{e}^{-\frac{\hbar\omega}{k_BT}}}$$
+              化简得到
+              $$Z^V = \frac{1}{\text{e}^{\frac{\hbar\omega}{2k_BT}} - \text{e}^{-\frac{\hbar\omega}{2k_BT}}} = \left(2\sinh{\frac{\hbar\omega}{k_BT}}\right)^{-1}$$
+              故
+              $$F^V(T,V) = -k_BT\ln{Z^V} = k_BT\ln{\left[2\sinh{\left(\dfrac{\hbar\omega}{2k_BT}\right)}\right]}$$
+        \item 体积为 $V$ 的晶体在有限温度下的自由能由零温时的内能 $U_0(V)$ 和有温度下声子激发贡献的自由能两部分组成，其中零温时的内能可以在平衡体积 $V_0$ 处展开
+              $$U_0(V) = U_0(V_0) + U^\prime(V_0)\delta V + \frac{1}{2}U^{\prime\prime}(V_0)\delta V^2$$
+              平衡位置处 $U^\prime(V_0) = 0$，体弹性模量 $\displaystyle B = V_0\left(\frac{\partial^2 U}{\partial V^2}\right)$，故内能随体积的变化为
+              $$U_0(V) = U_0(V_0) + \frac{1}{2}V_0B\left(\frac{\delta V}{V_0}\right)^2 = V_0\left[\frac{U_0(V_0)}{V_0} + \frac{1}{2}B\Delta^2\right]$$
+              这样给定温度和单位体积（$V_0 = 1$），亥姆霍兹自由能密度可写为
+              $$\displaystyle F(\Delta,T) = \frac{1}{2}B\Delta^2 + k_BT\sum_{q}\ln{\left\{2\sinh{\left[\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right]}\right\}}$$
+              要证明当 $\displaystyle B\Delta = \gamma\sum_{q}\frac{1}{2}\hbar\omega(\mathbf{q})\coth{\left[\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right]}$ 时，$F$ 对 $\Delta$ 为极小，有
+              $$\frac{\partial F}{\partial \Delta} = B\Delta + k_BT\sum_{\mathbf{q}}\frac{2\cosh{[\hbar\omega(\mathbf{q})/2k_BT]}}{2\sinh{[\hbar\omega(\mathbf{q})/2k_BT]}}\times\frac{\hbar}{2k_BT}\frac{\text{d}\omega(\mathbf{q})}{\text{d}\Delta} = 0$$
+              由于 $\text{d}\Delta = \text{d}V$,\ $\dfrac{\text{d}\omega(\mathbf{q})}{\omega(\mathbf{q})} = -\gamma\Delta$,\ 有 $\displaystyle\frac{\text{d}\omega(\mathbf{q})}{\text{d}\Delta} = \frac{\text{d}\omega(\mathbf{q})}{\text{d}V} = -\gamma\omega(\mathbf{q})$，故
+              $$B\Delta = \gamma\sum_{q}\frac{1}{2}\hbar\omega(\mathbf{q})\coth{\left[\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right]}$$
+              经检验，$\displaystyle \frac{\partial^2 F}{\partial \Delta^2} > 0$，此时确实为自由能极小值。 \\[12pt]
+              根据自由能可计算熵
+              $$S = -\left(\frac{\partial F}{\partial T}\right)_V = -k_B\sum_{\mathbf{q}}\ln{\left[\left(2\sinh{\frac{\hbar\omega(\mathbf{q})}{2k_BT}}\right)\right]} + \frac{1}{T}\sum_{\mathbf{q}}\frac{1}{2}\hbar\omega(\mathbf{q})\coth{\left(\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right)}$$
+              内能密度函数
+              $$U(T,\Delta) = F + TS = \frac{1}{2}\Delta^2 + \sum_{\mathbf{q}}\frac{1}{2}\hbar\omega(\mathbf{q})\coth{\left(\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right)}$$
+              利用 $\displaystyle B\Delta = \gamma\sum_{q}\frac{1}{2}\hbar\omega(\mathbf{q})\coth{\left[\frac{\hbar\omega(\mathbf{q})}{2k_BT}\right]}$ 得到
+              $$U(T,\Delta) = \frac{1}{2}B\Delta^2 + \frac{B\Delta}{\gamma} \approx \frac{B\Delta}{\gamma}$$
+              故  $\Delta$ 可近似表达为 $\Delta = \dfrac{\gamma U(T)}{B}$.
+        \item 推广的格林艾森常数表达式为 
+              $$\gamma = \frac{\displaystyle\sum_{\mathbf{q}s}\gamma_{\mathbf{q}s}C_V^{\mathbf{q}s}}{\displaystyle\sum_{\mathbf{q}s}C_V^{\mathbf{q}s}}$$
+              其中 $\displaystyle\gamma_{\mathbf{q}s} = \frac{\partial\ln{\omega_s(\mathbf{q})}}{\partial\ln{V}}$ 是（$\mathbf{q}s$）模式的格林艾森常数，$\displaystyle C_V^{\mathbf{q}s}(T)$ 是（$\mathbf{q}s$）模式的比热容。 \\[12pt]
+              德拜模型是单参量的晶格振动模型，$\omega_D$ 是计及非谐效应的唯一参量。德拜模型隐含假定 $\omega_{\mathbf{q}} = \omega_Df_S(\mathbf{q})$，$f_s(\mathbf{q})$ 是与晶体结构有关的函数，非谐效应只包含在 $\omega_D$中，所以有
+              $$\gamma = \frac{\displaystyle\sum_{\mathbf{q}s}\gamma_{\mathbf{q}s}C_V^{\mathbf{q}s}}{\displaystyle\sum_{\mathbf{q}s}C_V^{\mathbf{q}s}} = \frac{\displaystyle\sum_{\mathbf{q}s}\gamma_{D}C_V^{\mathbf{q}s}}{\displaystyle\sum_{\mathbf{q}s}C_V^{\mathbf{q}s}} = \gamma_D$$
+              其中 $\displaystyle\gamma_D = -\frac{\partial\ln{\omega_D}}{\ln{V}} = - \frac{\partial \ln{\theta_D}}{\partial\ln{V}}$，其中 $\theta_D = \dfrac{\hbar\omega_D}{k_B}$。
+    \end{enumerate}
+\end{solution}
 
 % \newpage
 % \section{第四章习题}
