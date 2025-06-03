@@ -664,7 +664,60 @@
     由此结果说明每一能带色散关系均满足 $E(k+K_h) = E(k)$，当 $V_0$ 为负数，该模型是单电子在一维原子链中运动的一种很好的描述。
 \end{problem}
 \begin{solution}
-    
+    分析势场函数，从 $-\infty$ 到 $\infty$ 每间隔 $a$ 有一个 $\delta$ 势垒\footnote[1]{根据量子力学知识有：$\delta$ 势垒仅存在散射态。}。代入薛定谔方程
+    \begin{equation*}
+        -\frac{\hbar^2}{2m}\frac{\text{d}^2}{\text{d}x^2}\Psi + V_0\sum_{l = -\infty}^{+\infty}\delta(x - la)\Psi = E\Psi
+    \end{equation*}
+    考虑原点附近波函数的解，
+    \begin{equation*}
+        \Psi = \left\{
+            \begin{aligned}
+                &A\text{e}^{i\alpha x} + B\text{e}^{-i\alpha x} \quad -a < x < 0 \\
+                &C\text{e}^{i\alpha x} + D\text{e}^{-i\alpha x} \quad 0 < x < a
+            \end{aligned}
+        \right.
+        ,\  \text{其中 $\displaystyle \alpha = \sqrt{\frac{2mE}{\hbar^2}}$.}
+    \end{equation*}
+    由布洛赫定理 $\Psi_k(x + a) = \text{e}^{ika}\Psi_k(x)$, 有
+    \begin{equation*}
+        C\text{e}^{i\alpha (x + a)} + D\text{e}^{-i\alpha (x + a)} = \text{e}^{ika}\left(A\text{e}^{i\alpha x} + B\text{e}^{-i\alpha x}\right)
+    \end{equation*}
+    即
+    \begin{equation*}
+        A\text{e}^{i\alpha x} + B\text{e}^{-i\alpha x} = C\text{e}^{i\alpha (x + a) - ika} + D\text{e}^{-i\alpha (x + a) - ika}
+    \end{equation*}
+    由量子力学知识， $\delta$ 势垒在原点处需满足
+    \begin{equation*}
+        \left\{
+            \begin{aligned}
+                &\Psi(0^-) = \Psi(0^+) \\
+                &\Psi^\prime(0^+) - \Psi^\prime(0^-) = \frac{2mV_0}{\hbar^2}\Psi(0)
+            \end{aligned}
+        \right.
+    \end{equation*}
+    即
+    \begin{equation*}
+        \left\{
+            \begin{aligned}
+                &(\text{e}^{ika} - \text{e}^{i\alpha a})C + (\text{e}^{ika} - \text{e}^{-i\alpha a})D = 0 \\
+                &(i\alpha\text{e}^{ika} - i\alpha\text{e}^{i\alpha a} - \frac{2mV_0}{\hbar^2}\text{e}^{ika})C + (-i\alpha\text{e}^{ika} + i\alpha\text{e}^{-ika} - \frac{2mV_0}{\hbar^2}\text{e}^{ika})D = 0
+            \end{aligned}
+        \right.
+    \end{equation*}
+    若方程有解，则
+    \begin{equation*}
+        \begin{vmatrix}
+            \text{e}^{ika} - \text{e}^{i\alpha a} & \qquad \text{e}^{ika} - \text{e}^{-i\alpha a} \\[12pt]
+            i\alpha\text{e}^{ika} - i\alpha\text{e}^{i\alpha a} - \dfrac{2mV_0}{\hbar^2}\text{e}^{ika} & \qquad -i\alpha\text{e}^{ika} + i\alpha\text{e}^{-ika} - \dfrac{2mV_0}{\hbar^2}\text{e}^{ika}
+        \end{vmatrix}
+        = 0
+    \end{equation*}
+    解出
+    \begin{equation*}
+        \cos{ka} = \dfrac{maV_0\sin{\alpha a}}{\alpha a} + \cos{(\alpha a)}, \alpha^2 = 2mE/\hbar^2
+    \end{equation*}
+    由于 $\alpha$ 是 $k$ 的周期函数，故 $E(k)$ 也是 $k$ 的周期函数。 \\
+    当 $V_0$ 为负数时，$\delta$ 势垒变为 $\delta$ 势阱，存在束缚态。
 \end{solution}
 
 \begin{problem}
@@ -680,18 +733,54 @@
     且 $a = 4b$，$\omega$ 是常量。试画出该势能曲线，并求该势能的平均值。
 \end{problem}
 \begin{solution}
-    
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{assets/V(x).png}
+        \caption{势能曲线}
+    \end{figure}
+    \begin{equation*}
+        \begin{aligned}
+            \overline{V}(x) & = \frac{1}{4b}\int_{-2b}^{2b}V(x)\text{d}x \\[12pt]
+                            & = \frac{1}{2b}\int_{0}^{b}\frac{1}{2}m\omega^2(b^2 - x^2)\text{d}x \\[12pt]
+                            & = \frac{1}{4b}m\omega^2\left(b^2x - \frac{1}{3}x^3\right)\Big|_0^b \\[12pt]
+                            & = \frac{1}{4b}m\omega^2\cdot\frac{2}{3}b^3 \\[12pt]
+                            & = \frac{1}{6}m\omega^2b
+        \end{aligned}
+    \end{equation*}
 \end{solution}
 
 \begin{problem}
     用近自由电子近似处理上题，求此晶体第一及第二能隙宽度。
 \end{problem}
 \begin{solution}
-    
+    近自由电子近似在电子波矢靠近布里渊区边界时，其格波色散关系为
+    \begin{equation*}
+        E_{\pm}(\mathbf{k}) = \frac{E_0(\mathbf{k}) + E_0(\mathbf{k} - \mathbf{K}_h)}{2}\pm\sqrt{\left(\frac{E_0(\mathbf{k}) - E_0(\mathbf{k} - \mathbf{K}_h)}{2}\right)^2 + \left|V(\mathbf{K}_h)\right|^2}
+    \end{equation*}
+    能隙宽度正比于 $2\left|V(\mathbf{K}_h)\right|$，对周期势作傅立叶展开
+    \begin{equation*}
+        V(x) = \sum_{K_h}V(K_h)\text{e}^{iK_h x},\  V(K_h) = \frac{1}{4b}\int_{-b}^{b}V(x)\text{e}^{-iK_h x}\text{d}x,\  K_h = \frac{2\pi}{a}h
+    \end{equation*}
+    \begin{equation*}
+        \begin{aligned}
+            V(K_h) & = \frac{1}{8b}m\omega^2\int_{-b}^{b}(b^2 - x^2)\cos{K_h x}\text{d}x \\[12pt]
+                   & = \frac{m\omega^2}{4bK_h}\left[(b^2 - x^2)\sin{K_h x}\Big|_0^b - \int_{0}^{b}\sin{K_h x}\cdot(-2x)\text{d}x\right] \\[12pt]
+                   & = -\frac{m\omega^2}{2bK_h^2}\int_{0}^{b}x\text{d}\cos{K_hx} \\[12pt]
+                   & = \frac{m\omega^2}{2bK_h^3}\left[\sin{K_hb} - (K_hb)\cos{K_hb}\right]
+        \end{aligned}
+    \end{equation*}
+    第一能隙宽度
+    \begin{equation*}
+        E_g^1 = 2\left|V(K_1 = \frac{\pi}{2b})\right| = \frac{8b^2}{\pi^3}m\omega^2
+    \end{equation*}
+    第二能隙宽度
+    \begin{equation*}
+        E_g^2 = 2\left|V(K_2 = \frac{\pi}{b})\right| = \frac{b^2}{\pi^3}m\omega^2
+    \end{equation*}
 \end{solution}
 
 \begin{problem}
-    设两维正方晶格的周期势为
+    设二维正方晶格的周期势为
     $$V(\mathbf{r}) = V(x,y) = - 4U\cos{\frac{2\pi x}{a}}\cos{\frac{2\pi y}{a}}$$
     $a$ 为晶格常量，求：
     \begin{enumerate}[(a)]
@@ -700,7 +789,33 @@
     \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item 对于二维正方点阵有
+              \begin{equation*}
+                  \mathbf{a_1} = a\mathbf{i}, \mathbf{a_2} = a\mathbf{j};\ \mathbf{b_1} = \frac{2\pi}{a}\mathbf{i}, \mathbf{b_2} = \frac{2\pi}{a}\mathbf{j}, \mathbf{K}_{h_1h_2} = h_1\mathbf{b_1} + h_2\mathbf{b_2}
+              \end{equation*}
+              故
+              \begin{equation*}
+                   \begin{aligned}
+                        V(\mathbf{r}) & = - 4U\cos{\frac{2\pi x}{a}}\cos{\frac{2\pi y}{a}} \\[12pt]
+                                      & = - U \left[\text{e}^{i\left(\frac{2\pi x}{a} + \frac{2\pi y}{a}\right)} + \text{e}^{i\left(\frac{2\pi x}{a} - \frac{2\pi y}{a}\right)} + \text{e}^{i\left(-\frac{2\pi x}{a} + \frac{2\pi y}{a}\right)} + \text{e}^{i\left(-\frac{2\pi x}{a} - \frac{2\pi y}{a}\right)}\right]
+                   \end{aligned}
+              \end{equation*}
+              即
+              \begin{equation*}
+                  V(\mathbf{K_h}) = 
+                  \left\{
+                      \begin{aligned}
+                          & -U, \quad \mathbf{K_h} = \mathbf{K_1},\mathbf{K_2},\mathbf{K_3},\mathbf{K_4} \\[12pt]
+                          & 0, \ \qquad others
+                      \end{aligned}
+                  \right.
+              \end{equation*}
+              其中 $\displaystyle \mathbf{K_1} = \left(\frac{2\pi}{a}, \frac{2\pi}{a}\right), \mathbf{K_2} = \left(\frac{2\pi}{a}, -\frac{2\pi}{a}\right), \mathbf{K_3} = \left(-\frac{2\pi}{a}, \frac{2\pi}{a}\right), \mathbf{K_4} = \left(-\frac{2\pi}{a}, -\frac{2\pi}{a}\right)$.
+        \item 布拉格反射条件，$\mathbf{k} - \mathbf{k}^\prime = \mathbf{G}$. \\[12pt]
+              只有 $\mathbf{K_h} = \mathbf{K_1},\mathbf{K_2},\mathbf{K_3},\mathbf{K_4}$ 时 $V(\mathbf{K_h})$ 不为零，且 $V = -U$. \\[12pt]
+              故在近自由电子近似下在布里渊区边界 $\displaystyle\left[\frac{1}{2}\mathbf{K_1}, \frac{1}{2}\mathbf{K_2}, \frac{1}{2}\mathbf{K_3}, \frac{1}{2}\mathbf{K_4}\right]$ 发生布拉格反射，能隙为 $2U$。
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -709,7 +824,22 @@
     证明在布里渊区界面上，垂直于布里渊区界面的电子速度分量为0。
 \end{problem}
 \begin{solution}
-    
+    群速度定义式
+    \begin{equation*}
+        \mathbf{v}(\mathbf{k}) = \frac{1}{\hbar}\nabla_k E(\mathbf{k}), \ E(\mathbf{k}) = \frac{\hbar^2 k^2}{2m}
+    \end{equation*}
+    代入近自由电子近似在布里渊区界面附近的能量，有
+    \begin{equation*}
+        \mathbf{v}(\mathbf{k}) = \frac{1}{2\hbar}\left\{\left[\frac{\hbar^2\mathbf{k}}{m} + \frac{\hbar^2(\mathbf{k} - \mathbf{K_h})}{m}\right]\pm\frac{\left[E^0(\mathbf{k} - E^0(\mathbf{k} - \mathbf{K_h}))\right]\left[\dfrac{\hbar^2\mathbf{k}}{m} - \dfrac{\hbar^2(\mathbf{k} - \mathbf{K_h})}{m}\right]}{\sqrt{\left[E^0(\mathbf{k}) - E^0(\mathbf{k} + \mathbf{K}_h)\right]^2 + 4\left|V(\mathbf{K}_h)\right|^2}}\right\}
+    \end{equation*}
+    化简得到
+    \begin{equation*}
+        \mathbf{v}(\mathbf{k}) = \frac{\hbar}{2m}(2\mathbf{k} - \mathbf{K_h})\left\{1\pm\frac{E^0(\mathbf{K_h})\hat{\mathbf{K}}_h\hat{\mathbf{K}}_h}{\sqrt{\left[E^0(\mathbf{k}) - E^0(\mathbf{k} + \mathbf{K}_h)\right]^2 + 4\left|V(\mathbf{K}_h)\right|^2}}\right\}
+    \end{equation*}
+    在布里渊区发现上的分量为
+    \begin{equation*}
+        \mathbf{v}(\mathbf{k})\cdot\hat{\mathbf{K}}_h = \frac{\hbar}{2m}(2\mathbf{k} - \mathbf{K}_h)\cdot\hat{\mathbf{K}}_h\left\{1\pm\frac{E^0(\mathbf{K_h})\hat{\mathbf{K}}_h\hat{\mathbf{K}}_h}{\sqrt{\left[E^0(\mathbf{k}) - E^0(\mathbf{k} + \mathbf{K}_h)\right]^2 + 4\left|V(\mathbf{K}_h)\right|^2}}\right\} \varpropto (2\mathbf{k} - \mathbf{K}_h)\cdot\hat{\mathbf{K}}_h = 0
+    \end{equation*}
 \end{solution}
 
 \begin{problem}
@@ -717,8 +847,85 @@
     试用近自由电子近似求电子状态为 $\displaystyle\mathbf{k} = \left(\frac{2\pi}{a}, k_y\right)$ 的能量及其相应的波函数。
 \end{problem}
 \begin{solution}
-    
+    由周期势 $\displaystyle V(\mathbf{r}) = V_0 + A\cos{\frac{4\pi x}{a} + B\cos{\frac{2\pi y}{a}}}$可知，该长方晶格的晶格常量为
+    \begin{equation*}
+        \mathbf{a}_1 = \frac{a}{2}\hat{\mathbf{i}},\  \mathbf{a}_2 = a\hat{\mathbf{j}},\  \mathbf{b}_1 = \frac{4\pi}{a}\hat{\mathbf{i}},\  \mathbf{b}_2 = \frac{2\pi}{a}\hat{\mathbf{j}}
+    \end{equation*}
+    \begin{equation*}
+        V(\mathbf{r}) = V_0 + \frac{A}{2}\left(\text{e}^{i\frac{4\pi}{a}x} + \text{e}^{-i\frac{4\pi}{a}x}\right) + \frac{B}{2}\left(\text{e}^{i\frac{2\pi}{a}y} + \text{e}^{-i\frac{2\pi}{a}y}\right)
+    \end{equation*}
+    周期势不为零的傅立叶分量为 $\displaystyle V(\mathbf{K}_{10}) = V(\mathbf{K}_{\bar{1}0}) = \frac{A}{2}, V(\mathbf{K}_{01}) = V(\mathbf{K}_{0\bar{1}}) = \frac{B}{2}$.
+    由薛定谔方程
+    \begin{equation*}
+        \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r})\right]\Psi(\mathbf{r}) = E\Psi(\mathbf{r})
+    \end{equation*}
+    将试探解 $\displaystyle\Psi(\mathbf{r}) = \sum_{\mathbf{K}_h}C(\mathbf{k} + \mathbf{K}_h)\text{e}^{i(\mathbf{k} + \mathbf{K}_h)\cdot\mathbf{r}}, V(\mathbf{r}) = \sum_{\mathbf{K}_h}V(\mathbf{K}_h)\text{e}^{i\mathbf{K}_h\cdot\mathbf{r}}$ 代回有 
+    \begin{equation*}
+        \sum_{\mathbf{K}_h}\frac{\hbar^2}{2m}(\mathbf{k} + \mathbf{K}_h)^2C(\mathbf{k} + \mathbf{K}_h)\text{e}^{i(\mathbf{k} + \mathbf{K}_h)\cdot\mathbf{r}} + \sum_{\mathbf{K}_h^{\prime\prime}}V(\mathbf{K}_h^{\prime\prime})\sum_{\mathbf{K}_h^{\prime}}C(\mathbf{k} + \mathbf{\mathbf{K}_h^{\prime}})\text{e}^{i(\mathbf{k} + \mathbf{K}_h^{\prime} + \mathbf{K}_h^{\prime\prime})\cdot{\mathbf{r}}} = \sum_{\mathbf{K}_h}EC(\mathbf{k} + \mathbf{K}_h)\text{e}^{i(\mathbf{k} + \mathbf{K}_h)\cdot\mathbf{r}}
+    \end{equation*}
+    令 $\mathbf{K}^{\prime} + \mathbf{K}_h^{\prime\prime} = \mathbf{K}_h$，则 $\text{e}^{i(\mathbf{k} + \mathbf{K}_h)\cdot{\mathbf{r}}}$ 的系数方程简化为
+    \begin{equation*}
+        \left[E_0(\mathbf{k} + \mathbf{K}_h) - E\right]C(\mathbf{k} + \mathbf{K}_h) + \sum_{\mathbf{K}^{\prime}}V(\mathbf{K}_h - \mathbf{K}_h^{\prime})C(\mathbf{k} + \mathbf{K}_h^{\prime}) = 0,\ E_0(\mathbf{k}) = \frac{\hbar^2}{2m}\mathbf{k}^2
+    \end{equation*}
+    据题意 $\displaystyle\mathbf{k} = \left(\frac{2\pi}{a}, k_y\right)$, $\displaystyle\mathbf{k}_x = \frac{2\pi}{a}$ 正好在布里渊区边界上， \\[12pt]
+    考虑两个能量相等、波矢相差 $\pm\mathbf{b}_1$ 的两个分量 $C(\mathbf{k})$ 和 $C(\mathbf{k} - \mathbf{b}_1)$，相应的两个方程为
+    \begin{equation*}
+        [E_0(\mathbf{k}) - E]C(\mathbf{k}) + \frac{A}{2}C(\mathbf{k} - \mathbf{b}_1) = 0
+    \end{equation*}
+    \begin{equation*}
+        \frac{A}{2}C(\mathbf{k}) + [E_0(\mathbf{k} - \mathbf{b}_1) - E]C(\mathbf{k} - \mathbf{b}_1) = 0
+    \end{equation*}
+    \begin{equation*}
+        E_\pm(\mathbf{k}) = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}k_y^2 \pm \frac{\left|A\right|}{2}
+    \end{equation*}
+    代入本证方程得到
+    \begin{equation*}
+        C(\mathbf{k}) = \pm \text{sign}(A)C(\mathbf{k} - \mathbf{b}_1)
+    \end{equation*}
+    考虑 $A > 0$， 对于上述两个简并态，
+    \begin{equation*}
+        \mathbf{k} = \left(\frac{2\pi}{a}, k_y\right), \mathbf{k} - \mathbf{b}_1 = \left(-\frac{2\pi}{a}, k_y\right)
+    \end{equation*}
+    \begin{equation*}
+        \Psi(\mathbf{r}) = C(\mathbf{k})[\text{e}^{i\mathbf{k}\cdot\mathbf{r}}\pm\text{e}^{i(\mathbf{k} - \mathbf{b}_1)\cdot\mathbf{r}}]
+    \end{equation*}
+    故
+    \begin{equation*}
+        \Psi(\mathbf{r}) = 
+            \left\{
+                \begin{aligned}
+                & 2C(\mathbf{k})\cos{\frac{2\pi}{a}x}\text{e}^{ik_y y}, & E_+ = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}k_y^2 + \frac{A}{2} \\[12pt]
+                & 2C(\mathbf{k})i\sin{\frac{2\pi}{a}x}\text{e}^{ik_y y}, & E_+ = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}k_y^2 - \frac{A}{2} 
+                \end{aligned}
+            \right.
+    \end{equation*}
+    类似地，如果 $\displaystyle\mathbf{k} = \left(k_x, \frac{\pi}{a}\right)$, $\displaystyle\mathbf{k} - \mathbf{b}_2 = \left(k_x, -\frac{\pi}{a}\right)$，考虑 $A > 0$ 得到
+    \begin{equation*}
+        \Psi(\mathbf{r}) = 
+            \left\{
+                \begin{aligned}
+                & 2C(\mathbf{k})\cos{\frac{\pi}{a}y}\text{e}^{ik_x x}, & E_+ = \frac{\hbar^2}{2m}\left(\frac{\pi}{a}\right)^2 + \frac{\hbar^2}{2m}k_x^2 + \frac{B}{2} \\[12pt]
+                & 2C(\mathbf{k})i\sin{\frac{\pi}{a}y}\text{e}^{ik_x x}, & E_+ = \frac{\hbar^2}{2m}\left(\frac{\pi}{a}\right)^2 + \frac{\hbar^2}{2m}k_x^2 - \frac{B}{2} 
+                \end{aligned}
+            \right.
+    \end{equation*}
+    对于在四个顶点处的简并波函数和能级，只需在上述得到的非简并波函数和能级的基础上再简并微扰一次得到，最终结果为
+    \begin{equation*}
+        \Psi_{++}(\mathbf{r}) = 4C(\mathbf{k})\left(\cos{\frac{2\pi}{a}x}\right)\left(\cos{\frac{\pi}{a}y}\right),\  E_{++} = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}\left(\frac{\pi}{a}\right)^2 + \frac{A}{2} + \frac{B}{2}
+    \end{equation*}
+    \begin{equation*}
+        \Psi_{+-}(\mathbf{r}) = 4C(\mathbf{k})\left(\cos{\frac{2\pi}{a}x}\right)\left(i\sin{\frac{\pi}{a}y}\right),\  E_{+-} = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}\left(\frac{\pi}{a}\right)^2 + \frac{A}{2} - \frac{B}{2}
+    \end{equation*}
+    \begin{equation*}
+        \Psi_{-+}(\mathbf{r}) = 4C(\mathbf{k})\left(i\sin{\frac{2\pi}{a}x}\right)\left(\cos{\frac{\pi}{a}y}\right),\  E_{-+} = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}\left(\frac{\pi}{a}\right)^2 - \frac{A}{2} + \frac{B}{2}
+    \end{equation*}
+    \begin{equation*}
+        \Psi_{--}(\mathbf{r}) = 4C(\mathbf{k})\left(i\sin{\frac{2\pi}{a}x}\right)\left(i\sin{\frac{\pi}{a}y}\right),\  E_{--} = \frac{\hbar^2}{2m}\left(\frac{2\pi}{a}\right)^2 + \frac{\hbar^2}{2m}\left(\frac{\pi}{a}\right)^2 - \frac{A}{2} - \frac{B}{2}
+    \end{equation*}
 \end{solution}
+\begin{note}
+    \textcolor{red}{参考自参考答案}
+\end{note}
 
 \begin{problem}
     用紧束缚近似方法求出面心立方晶体 s态电子能带
@@ -726,14 +933,53 @@
     并求能带底部的有效质量。
 \end{problem}
 \begin{solution}
-    
+    对于面心立方晶格，每个原子有 12 个最近邻原子，位置为
+    \begin{equation*}
+        \left(\pm\frac{1}{2}a, \pm\frac{1}{2}a, 0\right),\ \left(0, \pm\frac{1}{2}a, \pm\frac{1}{2}a\right),\ \left(\pm\frac{1}{2}a, 0, \pm\frac{1}{2}a\right)
+    \end{equation*}
+    \begin{equation*}
+        E(\mathbf{k}) = E_s - J_0 - 4J_1\left(\cos{\frac{k_x a}{2}}\cos{\frac{k_y a}{2}} + \cos{\frac{k_y a}{2}}\cos{\frac{k_z a}{2}} + \cos{\frac{k_z a}{2}}\cos{\frac{k_x a}{2}}\right)
+    \end{equation*}
+    假定 $J_1 > 0$，极小值为 $E_{min} = E_s - J_0 - 12J_1$，极大值为 $E_{max} = E_s - J_0 + 4J_1$. \\
+    在极小值处展开 $E(\mathbf{k})$
+    \begin{equation*}
+        \begin{split}
+             E(\mathbf{k}) = &  E_s - J_0 - 4J_1 \left\{ \left[1 - \frac{1}{8}(k_x a)^2\right]\left[1 - \frac{1}{8}(k_y a)^2\right] \right. \\[12pt]
+                             & + \left[1 - \frac{1}{8}(k_y a)^2\right]\left[1 - \frac{1}{8}(k_z a)^2\right] \\[12pt]
+                             & \left. + \left[1 - \frac{1}{8}(k_z a)^2\right]\left[1 - \frac{1}{8}(k_x a)^2\right] \right\}
+        \end{split}
+    \end{equation*}
+    即
+    \begin{equation*}
+        E(\mathbf{k}) = E_s - J_0 - 12J_1 + J_1a^2(k_x^2 + k_y^2 + k_z^2) = E_{min} + \frac{\hbar^2}{2m}\mathbf{k}^2
+    \end{equation*}
+    故带底电子的有效质量为 $\displaystyle m = \frac{\hbar^2}{2J_1a}$.
 \end{solution}
 
 \begin{problem}
     某晶体中电子的等能面是椭球面 $\displaystyle E(\mathbf{k}) = \frac{\hbar^2}{2}\left(\frac{k_x^2}{m_1} + \frac{k_y^2}{m_2} + \frac{k_z^2}{m_3}\right)$，求该能谱的电子态密度。
 \end{problem}
 \begin{solution}
-    
+    将等能面方程写成标准的椭球方程
+    \begin{equation*}
+        \frac{k_x^2}{\left(\dfrac{2m_1E}{\hbar^2}\right)} + \frac{k_y^2}{\left(\dfrac{2m_2E}{\hbar^2}\right)} + \frac{k_z^2}{\left(\dfrac{2m_3E}{\hbar^2}\right)} = 1
+    \end{equation*}
+    记
+    \begin{equation*}
+        a(E) = \sqrt{\frac{2m_1E}{\hbar^2}},\  b(E) = \sqrt{\frac{2m_2E}{\hbar^2}},\  c(E) = \sqrt{\frac{2m_3E}{\hbar^2}}
+    \end{equation*}
+    由旋转椭球体积公式
+    \begin{equation*}
+        V(E) = \frac{4}{3}\pi a(E)b(E)c(E) = \frac{4}{3}\pi\left(\frac{2E}{\hbar^2}\right)^{\frac{3}{2}}\sqrt{m_1m_2m_3}
+    \end{equation*}
+    E 内 $\mathbf{k}$ 空间总的状态数等于 $\displaystyle\int_0^E N(E)\text{d}E$，由此得到
+    \begin{equation*}
+        \int_0^E N(E)\text{d}E = \frac{2\Omega}{(2\pi)^3}\frac{4}{3}\pi\left(\frac{2E}{\hbar^2}\right)^{\frac{3}{2}}\sqrt{m_1m_2m_3} = \frac{\Omega}{3\pi^2}\left(\frac{2E}{\hbar^2}\right)^{\frac{3}{2}}\sqrt{m_1m_2m_3}
+    \end{equation*}
+    故
+    \begin{equation*}
+        N(E) = \frac{\text{d}}{\text{d}E}\int_{0}^{E}N(E)\text{d}E = \frac{\Omega}{\pi^2\hbar^3}\sqrt{2m_1m_2m_3E}
+    \end{equation*}
 \end{solution}
 
 \newpage
