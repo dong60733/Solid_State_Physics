@@ -517,7 +517,7 @@
     $$\omega_{min} = \omega_0 - A\left(\frac{6\pi^2 N}{V}\right)^{\frac{2}{3}}$$
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{Page16}
     设 d 维简单晶格中，声子色散关系 $\omega(\mathbf{q})$ 与 $q^{\mu}$ 成正比，试证明
     \begin{enumerate}[(a)]
         \item 声子态密度 $\rho = B\omega^{\frac{d}{\mu} - 1}$;
@@ -993,7 +993,25 @@
     \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+    \begin{enumerate}[(a)]
+        \item 自由电子色散关系 $\displaystyle E(\mathbf{k}) = \frac{\hbar^2k^2}{2m}$，其约化电子态密度为
+              \begin{equation*}
+                 N(E) = \frac{2}{N}\sum_{\mathbf{k}}\delta[E - E(\mathbf{k})] = \frac{2\Omega}{4\pi^2}\int\text{d}^2k\delta[E - E(\mathbf{k})] = \frac{\Omega}{\pi}k\left|\frac{\text{d}k}{\text{d}E(\mathbf{k})}\right|_E = \frac{m\Omega}{\pi\hbar^2}
+              \end{equation*}
+              其中 $\Omega$ 为元胞面积。
+        \item 自由电子满足费米-狄拉克分布，
+              \begin{equation*}
+                 f(E) = \frac{1}{\text{e}^{(E - \mu)/k_BT} + 1}
+              \end{equation*}
+              在给定温度下，系统的电子化学势由电子数守恒确定，
+              \begin{equation*}
+                 N = \int_{0}^{\infty}N(E)f(E)\text{d}E = \frac{m\Omega k_BT}{\pi\hbar^2}ln{\left(1 + \text{e}^{\mu T}\right)}
+              \end{equation*}
+              反解得到
+              \begin{equation*}
+                 \mu(T) = k_BT\ln{\left[\text{exp}\left(\frac{nh^2}{4\pi mk_BT}\right) - 1\right]}
+              \end{equation*}
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -1020,7 +1038,50 @@
     其中， $\sigma = ne^2\tau / m^*$， $\omega_c = eB / m^*$.
 \end{problem}
 \begin{solution}
-    
+    电子漂移速度满足
+    \begin{equation*}
+        \frac{\text{d}}{\text{d}t}\bm{\upsilon} = \frac{1}{m^*}(-e\mathbf{E} - e\bm{\upsilon}\times\mathbf{B}) - \frac{\bm{\upsilon}}{\tau}
+    \end{equation*}
+    定态有 $\displaystyle\frac{\text{d}}{\text{d}t}\bm{\upsilon} = 0$，$\omega_c = eB / m^*$，故得到 
+    \begin{equation*}
+        \begin{pmatrix}
+            \bm{\upsilon}_x \\
+            \bm{\upsilon}_y \\
+            \bm{\upsilon}_z
+        \end{pmatrix}
+        =
+        -\left(\frac{e\tau}{m^*}\right)\frac{1}{1 + (\omega_c\tau)^2}
+        \begin{pmatrix}
+            1 & -\omega_c\tau & 0 \\
+            \omega_c\tau & 1 & 0 \\
+            0 & 0 & 1 + (\omega_c\tau)^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            E_x \\
+            E_y \\
+            E_z
+        \end{pmatrix}
+    \end{equation*}
+    而 $J = n(-e)\bm{\upsilon}$， $\sigma = ne^2\tau / m^*$，故
+    \begin{equation*}
+        \begin{pmatrix}
+            J_x \\
+            J_y \\
+            J_z
+        \end{pmatrix}
+        =
+        \frac{\sigma}{1 + (\omega_c\tau)^2}
+        \begin{pmatrix}
+            1 & -\omega_c\tau & 0 \\
+            \omega_c\tau & 1 & 0 \\
+            0 & 0 & 1 + (\omega_c\tau)^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            E_x \\
+            E_y \\
+            E_z
+        \end{pmatrix}
+    \end{equation*}
 \end{solution}
 
 \begin{problem}
@@ -1028,7 +1089,26 @@
     试证明频率为 $\omega$ 的电导率为 $\displaystyle\bm{\sigma}(\omega) = \sigma(0)\frac{1 + i\omega\tau}{1 + (\omega\tau)^2}$，其中 $\sigma(0) = ne^2\tau / m^*$.
 \end{problem}
 \begin{solution}
-    
+    由 Fourier Transform 有
+    \begin{equation*}
+        \mathbf{E}(\tau) = \int\mathbf{E}(\omega)\text{e}^{-i\omega \tau}\text{d}\omega
+    \end{equation*}
+    \begin{equation*}
+        \bm{\upsilon}(\tau) = \int\bm{\upsilon}(\omega)\text{e}^{-i\omega\tau}\text{d}\omega
+    \end{equation*}
+    代入漂移方程得到 
+    \begin{equation*}
+        -i\omega\bm{\upsilon}(\omega) + \frac{1}{\tau}\bm{\upsilon}(\omega) = -\frac{e}{m^*}\mathbf{E}(\omega)
+    \end{equation*}
+    故
+    \begin{equation*}
+        \bm{\upsilon}(\omega) = -\frac{e\tau/m^*}{1 - i\omega\tau}\mathbf{E}(\omega)
+    \end{equation*}
+    而 $\mathbf{J} = n(-e)\bm{\upsilon} = \sigma\mathbf{E}$，故 
+    \begin{equation*}
+        \sigma(\omega) = \frac{ne^2\tau/m^*}{1 - i\omega\tau} = \sigma(0)\frac{1 + i\omega\tau}{1 + (\omega\tau)^2}
+    \end{equation*}
+    其中 $\sigma(0) = ne^2\tau / m^*$.
 \end{solution}
 
 \begin{problem}
@@ -1036,8 +1116,19 @@
     \begin{enumerate}[(a)]
         \item 写出低温下 $C_V$ 与 $T$ 关系；
         \item 若已知直线的斜率部分来源于声子对比热容的贡献，求 $B$ 与德拜温度 $\theta_D$ 的关系；
-        \item 设截距部分来源于某波色子对比热容的贡献，试估计该准粒子的色散关系中 $\omega(\bm{q})\approx q^\mu$ 的 $\mu$.
+        \item 设截距部分来源于某玻色子对比热容的贡献，试估计该准粒子的色散关系中 $\omega(\bm{q})\approx q^\mu$ 的 $\mu$.
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[(a)]
+        \item 根据图像有 $C_V / T^{3 / 2} = A + BT^{3 / 2}$， 故 $C_V = AT^{3 / 2} + BT^3$.
+        \item 根据德拜模型
+              \begin{equation*}
+                 C_V^D(T) = \frac{12}{5}\pi^4Nk_B\left(\frac{T}{\theta_D}\right)^3
+              \end{equation*}
+              而 $C_V = AT^{3 / 2} + BT^3$，故 $\displaystyle B\thicksim \frac{1}{\theta_D^3}$.
+        \item 由习题\pageref{Page16}知 $C_V\varpropto T^{\frac{d}{\mu}}$, 故 $\mu = 2$.
+    \end{enumerate}
+\end{solution}
 
 \end{document}
